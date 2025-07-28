@@ -1,5 +1,5 @@
 -- [[OPEN SOURCE SCRIPT]] --
-local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/Source.lua.txt"))()
+local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/LuaLibrary/refs/heads/main/RedzLibraryV5.lua"))()
 
 local Window = redzlib:MakeWindow({
   Title = "Linhmc Hub: A Dusty Trip",
