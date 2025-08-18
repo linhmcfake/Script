@@ -1,12 +1,13 @@
 -- [[OPEN SOURCE]] --
 -- [[SCRIPT BY LINHMC_NEW]] --
-
+-- [[VERSION 1.4]] --
+------------------------------------------
 -- [[DEFAULT CONFIG]] --
 -- getgenv().rotationSpeed = 1
 -- getgenv().noclipfly = true
 -- getgenv().useV3Method = true
 ------------------------------------------
-
+--- [[SCRIPT]]--
 local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
