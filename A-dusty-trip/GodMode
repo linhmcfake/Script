@@ -1,0 +1,2 @@
+local v6 = {-math.huge}
+game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("DamagePlayerBullet"):FireServer(unpack(v6))
