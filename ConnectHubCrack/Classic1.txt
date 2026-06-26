@@ -1,0 +1,331 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local vu1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local v2, v3, v4 = pairs(game:GetService("CoreGui"):GetChildren())
+while true do
+    local v5, v6 = v2(v3, v4)
+    if v5 == nil then
+        break
+    end
+    v4 = v5
+    if v6.Name == "Fluxus" then
+        v6:Destroy()
+    end
+end
+getgenv().Config = {
+    Classic = false
+}
+local vu7 = tick()
+local v8 = game:GetService("Players")
+local vu9 = game:GetService("Workspace")
+local vu10 = v8.LocalPlayer
+task.spawn(function()
+    local v11 = loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Library/main/ui.lua"))():CreateWindow("The Classic v1.0.1 | Connect Hub / ??? / ??? ms / ??? FPS")
+    local v12 = v11:NewTab("Logs")
+    local v13 = v11:NewTab("Main"):AddSection("Main")
+    local function vu25(p14, p15)
+        local v16, v17, v18 = ipairs(vu9.RoadPrefabs:GetChildren())
+        local v19 = nil
+        while true do
+            local v20
+            v18, v20 = v16(v17, v18)
+            if v18 == nil then
+                break
+            end
+            if v20:IsA("Model") and v20.Name == p14 then
+                local v21, v22, v23 = ipairs(v20:GetDescendants())
+                while true do
+                    local v24
+                    v23, v24 = v21(v22, v23)
+                    if v23 == nil then
+                        break
+                    end
+                    if v24.Name == p15 then
+                        v19 = v24
+                    end
+                end
+            end
+        end
+        return v19
+    end
+    local function vu37(p26, p27)
+        local v28, v29, v30 = pairs(vu9.RoadPrefabs:GetChildren())
+        local v31 = nil
+        while true do
+            local v32
+            v30, v32 = v28(v29, v30)
+            if v30 == nil then
+                break
+            end
+            if v32:IsA("Model") and v32.Name == p26 then
+                local v33, v34, v35 = ipairs(v32:GetDescendants())
+                while true do
+                    local v36
+                    v35, v36 = v33(v34, v35)
+                    if v35 == nil then
+                        break
+                    end
+                    if v36.Name == p27 then
+                        if v36:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                            v31 = v36
+                        end
+                    end
+                end
+            end
+        end
+        return v31
+    end
+    v13:AddToggle("Complete Classic Jeep Quest | Afk Quest", "???", false, function(pu38)
+        task.spawn(function()
+            Config.Classic = pu38
+            while Config.Classic do
+                if vu25("GlassHouses", "Start") then
+                    if vu9.RoadPrefabs.GlassHouses:FindFirstChild("Killbots") then
+                        if vu9.RoadPrefabs.GlassHouses:FindFirstChild("Killbots")[""].Humanoid.Health ~= 0 then
+                            local v39, v40, v41 = pairs(vu9.RoadPrefabs.GlassHouses:GetDescendants())
+                            while true do
+                                local v42
+                                v41, v42 = v39(v40, v41)
+                                if v41 == nil then
+                                    break
+                                end
+                                if v42.Name == "" and v42:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                                    game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("GOLDAK47"), v42)
+                                end
+                            end
+                        elseif vu25("SFOTHbridge", "End") then
+                            game.Players.LocalPlayer.Character:PivotTo(vu9.RoadPrefabs:FindFirstChild("SFOTHbridge").End:GetPivot())
+                            task.wait(2)
+                            vu9.RoadPrefabs:FindFirstChild("SFOTHbridge").End:Destroy()
+                        elseif vu25("PirateBridge", "Start") then
+                            task.wait(0.5)
+                            if vu37("PirateBridge", "Pirate") then
+                                local v43, v44, v45 = pairs(vu9.RoadPrefabs.PirateBridge:FindFirstChild("Pirates"):GetChildren())
+                                while true do
+                                    local v46
+                                    v45, v46 = v43(v44, v45)
+                                    if v45 == nil then
+                                        break
+                                    end
+                                    if v46.Name == "Pirate" and v46:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                                        vu10.Character:PivotTo(v46:GetPivot() * CFrame.new(0, 20, 0))
+                                        game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("GOLDAK47"), v46)
+                                    end
+                                end
+                            elseif vu25("HauntedMansion", "Start") then
+                                if vu9.RoadPrefabs.HauntedMansion:FindFirstChild("Zombies") then
+                                    if vu37("HauntedMansion", "mutant") then
+                                        local v47, v48, v49 = pairs(vu9.RoadPrefabs.HauntedMansion:GetDescendants())
+                                        while true do
+                                            local v50
+                                            v49, v50 = v47(v48, v49)
+                                            if v49 == nil then
+                                                break
+                                            end
+                                            if v50.Name == "mutant" and v50:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                                                vu10.Character:PivotTo(v50:GetPivot() * CFrame.new(0, 20, 0))
+                                                game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("GOLDAK47"), v50)
+                                            end
+                                        end
+                                    elseif vu25("RobloxHQ", "Start") then
+                                        if vu9.RoadPrefabs.RobloxHQ:FindFirstChild("Folder") then
+                                            if vu9.RoadPrefabs:FindFirstChild("RobloxHQ"):FindFirstChild("Folder"):FindFirstChild("R6"):FindFirstChild("Humanoid").Health ~= 0 then
+                                                game.Players.LocalPlayer.Character:PivotTo(vu25("RobloxHQ", "Teleport"):GetPivot() + Vector3.new(- 40, 64.7, 22))
+                                                local v51 = vu9
+                                                local v52, v53, v54 = pairs(v51:GetChildren())
+                                                while true do
+                                                    local v55
+                                                    v54, v55 = v52(v53, v54)
+                                                    if v54 == nil then
+                                                        break
+                                                    end
+                                                    if v55.Name == "mutantZom" then
+                                                        game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("GOLDAK47"), v55)
+                                                    end
+                                                end
+                                                local v56, v57, v58 = pairs(vu9.RoadPrefabs.RobloxHQ:FindFirstChild("Folder"):GetChildren())
+                                                while true do
+                                                    local v59
+                                                    v58, v59 = v56(v57, v58)
+                                                    if v58 == nil then
+                                                        break
+                                                    end
+                                                    if v59.Name == "R6" then
+                                                        for _ = 1, 3 do
+                                                            game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("GOLDAK47"), v59)
+                                                        end
+                                                    end
+                                                end
+                                            else
+                                                vu1:Notify({
+                                                    Title = "Done!",
+                                                    Description = "Classic Jeep has been added to your garage"
+                                                }, {
+                                                    OutlineColor = Color3.fromRGB(0, 0, 255),
+                                                    Time = 2,
+                                                    Type = "image"
+                                                }, {
+                                                    Image = "http://www.roblox.com/asset/?id=17860774372",
+                                                    ImageColor = Color3.fromRGB(255, 255, 255)
+                                                })
+                                                task.wait(3)
+                                            end
+                                        else
+                                            vu1:Notify({
+                                                Title = "Classic Jeep!",
+                                                Description = "Waiting for the boss to appear"
+                                            }, {
+                                                OutlineColor = Color3.fromRGB(0, 0, 255),
+                                                Time = 2,
+                                                Type = "image"
+                                            }, {
+                                                Image = "http://www.roblox.com/asset/?id=17860774372",
+                                                ImageColor = Color3.fromRGB(255, 255, 255)
+                                            })
+                                            task.wait(3)
+                                            game.Players.LocalPlayer.Character:PivotTo(vu25("RobloxHQ", "BigR"):GetPivot() + Vector3.new(20, 10, - 5))
+                                        end
+                                    else
+                                        local v60, v61, v62 = ipairs(workspace.Map.Points:GetChildren())
+                                        while true do
+                                            local v63
+                                            v62, v63 = v60(v61, v62)
+                                            if v62 == nil then
+                                                break
+                                            end
+                                            vu10.Character:PivotTo(v63:GetPivot() * CFrame.new(0, 5, 0))
+                                        end
+                                    end
+                                end
+                            else
+                                local v64, v65, v66 = ipairs(workspace.Map.Points:GetChildren())
+                                while true do
+                                    local v67
+                                    v66, v67 = v64(v65, v66)
+                                    if v66 == nil then
+                                        break
+                                    end
+                                    vu10.Character:PivotTo(v67:GetPivot() * CFrame.new(0, 5, 0))
+                                end
+                            end
+                        else
+                            local v68, v69, v70 = ipairs(workspace.Map.Points:GetChildren())
+                            while true do
+                                local v71
+                                v70, v71 = v68(v69, v70)
+                                if v70 == nil then
+                                    break
+                                end
+                                vu10.Character:PivotTo(v71:GetPivot() * CFrame.new(0, 5, 0))
+                            end
+                        end
+                    else
+                        vu10.Character:PivotTo(vu25("GlassHouses", "Start"):GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                else
+                    local v72, v73, v74 = ipairs(workspace.Map.Points:GetChildren())
+                    while true do
+                        local v75
+                        v74, v75 = v72(v73, v74)
+                        if v74 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v75:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(0.5)
+            end
+        end)
+    end)
+    v13:AddButton("Bring Tix | Free Badges", "???", function(_)
+        local v76 = vu9
+        local v77, v78, v79 = pairs(v76:GetDescendants())
+        while true do
+            local v80
+            v79, v80 = v77(v78, v79)
+            if v79 == nil then
+                break
+            end
+            if v80.Name == "Tix" then
+                game.ReplicatedStorage.teleport:FireServer(v80, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v13:AddButton("Delete Players Tool | so that the players don\'t interfere", "Delete Players Tool", function()
+        local v81 = Instance.new("Tool", vu10.Backpack)
+        v81.Name = "Player Delete"
+        v81.RequiresHandle = false
+        v81.Activated:Connect(function()
+            if vu10:GetMouse().Target and vu10:GetMouse().Target:FindFirstAncestorOfClass("Model") then
+                game.ReplicatedStorage.teleport:FireServer(vu10:GetMouse().Target:FindFirstAncestorOfClass("Model"), Vector3.new(math.huge, math.huge, math.huge))
+            end
+        end)
+    end)
+    local v82 = v12:AddSection("          The Classic Version Loaded In " .. string.format("%s seconds.", string.format("%.2f", tostring(tick() - vu7))))
+    pcall(function()
+    end)
+    v82:AddButton("Join https://discord.gg/trSwdwm6Hp for newest Updates", "https://discord.gg/trSwdwm6Hp", function()
+        if setclipboard then
+            setclipboard("https://discord.gg/trSwdwm6Hp")
+        end
+    end)
+    v82:AddButton("1.0.1 Version:", "???", function()
+    end)
+    v82:AddButton("Classic Jeep: Auto Complete", "???", function()
+    end)
+    vu1:Notify({
+        Title = "Connect Hub",
+        Description = "Script Succesfully Loaded."
+    }, {
+        OutlineColor = Color3.fromRGB(0, 0, 255),
+        Time = 3,
+        Type = "image"
+    }, {
+        Image = "http://www.roblox.com/asset/?id=17860774372",
+        ImageColor = Color3.fromRGB(255, 255, 255)
+    })
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Rspy", true))()
+end)
+local function vu96(p83)
+    local v84, v85, v86 = ipairs(game:GetService("CoreGui"):GetChildren())
+    while true do
+        local v87
+        v86, v87 = v84(v85, v86)
+        if v86 == nil then
+            break
+        end
+        if v87.Name == "Fluxus" then
+            local v88, v89, v90 = ipairs(v87:GetDescendants())
+            while true do
+                local v91
+                v90, v91 = v88(v89, v90)
+                if v90 == nil then
+                    break
+                end
+                if v91:IsA("Frame") then
+                    local v92, v93, v94 = ipairs(v91:GetDescendants())
+                    while true do
+                        local v95
+                        v94, v95 = v92(v93, v94)
+                        if v94 == nil then
+                            break
+                        end
+                        if v95:IsA("TextLabel") and string.find(v95.Text, p83) then
+                            return v95
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
+local vu97 = game:GetService("RunService").RenderStepped
+task.spawn(function()
+    vu97:Connect(function()
+        local v98 = vu96("Connect Hub")
+        if v98 then
+            local v99 = vu9
+            v98.Text = string.format("The Classic v1.0.1 | Connect Hub / %s / %i ms / %i FPS", DateTime.now():FormatLocalTime("LTS", "de-DE"), math.round(game.Players.LocalPlayer:GetNetworkPing() * 1000), tostring(v99:GetRealPhysicsFPS()))
+        end
+    end)
+end)

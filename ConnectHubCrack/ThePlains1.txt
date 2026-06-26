@@ -1,0 +1,2858 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local v1, v2, v3 = pairs(game:GetService("CoreGui"):GetChildren())
+while true do
+    local v4, v5 = v1(v2, v3)
+    if v4 == nil then
+        break
+    end
+    v3 = v4
+    if v5.Name == "Fluxus" then
+        v5:Destroy()
+    end
+end
+if Workspace:FindFirstChild("connection") then
+    Workspace:FindFirstChild("connection"):Destroy()
+end
+getgenv().Config = {
+    Main = false,
+    Lunar = false,
+    LunarFarm = false,
+    Turrets = false,
+    Egg = false,
+    Forest = false,
+    PowerPlant = false,
+    Items = false,
+    Map = false,
+    Mobs = false,
+    Vehicle = false,
+    Locations = false,
+    Troll = false,
+    Transmorph = false,
+    Find = false,
+    Golf = false,
+    Diner = false,
+    Space = false
+}
+local vu6 = tick()
+local vu7 = game:GetService("ReplicatedStorage")
+local v8 = game:GetService("Players")
+local v9 = game:GetService("Workspace")
+local vu10 = v8.LocalPlayer
+local vu11 = game:GetService("Lighting")
+local function vu14(p12, p13)
+    vu7:WaitForChild("movebuilding"):FireServer(p12, p13)
+end
+local vu15 = game.Players.LocalPlayer.Name
+local v16, v17, v18 = pairs(game:GetService("Players"):GetPlayers())
+local vu19 = vu7
+local vu20 = v9
+local vu21 = {}
+local vu22 = {
+    "Blue PaintballGun",
+    "Yellow PaintballGun",
+    "Green PaintballGun",
+    "Red PaintballGun",
+    "Pink PaintballGun",
+    "BalloonGun",
+    "Raygun",
+    "Confetti Gun",
+    "Blue Duck",
+    "Gray Duck",
+    "Rubber Duck",
+    "RubberChicken",
+    "Tophat Duck",
+    "Devil Duck",
+    "Gold Bar",
+    "Monster Mash Dance Potion",
+    "Firework",
+    "DancePotion",
+    "Saveable_HealingPotion",
+    "Backpack_6",
+    "Backpack_8",
+    "FirePotion",
+    "Shrek",
+    "Pink_Marker",
+    "Purple_Marker",
+    "Red_Marker",
+    "Blue_Marker",
+    "White_Marker",
+    "Dark_Green_Marker",
+    "Golden Egg Launcher",
+    "Digital Watch",
+    "UFO",
+    "Fire Extinguisher",
+    "Molotov",
+    "Energy Drink",
+    "Propane Tank",
+    "Incendiary Shotgun",
+    "Golden Egg",
+    "1B Cake Slice",
+    "Golden PaintballGun",
+    "Confetti Bomb",
+    "IceCreamGun",
+    "RGB PaintballGun",
+    "Pumpkin Rocket Launcher",
+    "Scythe",
+    "Ghost Friend",
+    "Spider Gun",
+    "Double Barrel Shotgun",
+    "Jackolantern",
+    "Spooky Revolver",
+    "Candy Apple",
+    "Golden RailGun",
+    "Acid Thrower",
+    "Water Gun",
+    "Space Rifle",
+    "Junk Gun",
+    "Turkey Leg",
+    "Glutton Ray",
+    "Turkey Launcher",
+    "SR-3M"
+}
+local function vu28(p23)
+    local v24, v25, v26 = pairs(game.Workspace:GetChildren())
+    while true do
+        local v27
+        v26, v27 = v24(v25, v26)
+        if v26 == nil then
+            break
+        end
+        if v27.Name == p23 and (v27:FindFirstChild("target") and v27.target.Value == nil) then
+            return v27
+        end
+    end
+end
+local vu29 = {
+    "Pistol",
+    "AK47",
+    "RPG",
+    "Mac10",
+    "MiniGun",
+    "AMMO_CRATE",
+    "PumpShotgun",
+    "GOLDAK47",
+    "GoldMiniGun",
+    "DEAGLE",
+    "PlatAK47",
+    "RocketLauncher",
+    "RopeGun",
+    "Time Splicer",
+    "Deagle",
+    "Minigun Crimson Attack"
+}
+local vu30 = {
+    "Wheel",
+    "Engine",
+    "Car Jack",
+    "hood",
+    "FL",
+    "grill",
+    "Radiator",
+    "rightlight",
+    "leftlight",
+    "back",
+    "FR",
+    "frontbumper",
+    "FR2",
+    "RR",
+    "RL",
+    "FL2",
+    "hood2",
+    "enginehood",
+    "back2",
+    "rearbumper",
+    "RR2",
+    "radiator",
+    "FL3",
+    "RR3"
+}
+local vu31 = {
+    "Pike",
+    "axe",
+    "Shield",
+    "Katana",
+    "VampireDagger"
+}
+local vu32 = {
+    "C4",
+    "dynamite",
+    "bomb",
+    "Grenade",
+    "Molotov"
+}
+local vu33 = {
+    "Comic1",
+    "Comic2",
+    "Comic3",
+    "Comic4",
+    "Comic5",
+    "Comic6"
+}
+while true do
+    local v34
+    v18, v34 = v16(v17, v18)
+    if v18 == nil then
+        break
+    end
+    table.insert(vu21, v34.Name)
+end
+local vu35 = 1
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local vu36 = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+task.spawn(function()
+    local v37 = loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Library/main/ui.lua"))():CreateWindow("The Plains v1.1.4 | Connect Hub / ??? / ??? ms / ??? FPS")
+    local v38 = v37:NewTab("Logs")
+    local v39 = v37:NewTab("Main"):AddSection("Misc")
+    v39:AddToggle("Auto Road", "Automatic complete road", false, function(pu40)
+        task.spawn(function()
+            Config.Main = pu40
+            while Config.Main do
+                if vu10.Character and vu10.Character:FindFirstChild("HumanoidRootPart") then
+                    vu10.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+                end
+                vu10.Character:PivotTo(workspace.Map.Points:WaitForChild(tostring(vu35)):GetPivot() + Vector3.new(0, 5, 0))
+                vu35 = vu35 + 1
+                task.wait()
+            end
+        end)
+    end)
+    local vu41 = {
+        "BottleCap",
+        "10pile",
+        "5pile",
+        "15pile",
+        "15Pile",
+        "20pile",
+        "5Pile",
+        "5stack"
+    }
+    v39:AddToggle("Auto Collect BottleCap", "Automatic collect bottlecaps", false, function(pu42)
+        task.spawn(function()
+            Config.Caps = pu42
+            while Config.Caps do
+                if vu20:FindFirstChild("5Pile") or (vu20:FindFirstChild("BottleCap") or (vu20:FindFirstChild("10pile") or (vu20:FindFirstChild("15Pile") or (vu20:FindFirstChild("20pile") or (vu20:FindFirstChild("5stack") or (vu20:FindFirstChild("15pile") or vu20:FindFirstChild("5pile"))))))) then
+                    local v43 = vu20
+                    local v44, v45, v46 = pairs(v43:GetDescendants())
+                    while true do
+                        local v47
+                        v46, v47 = v44(v45, v46)
+                        if v46 == nil then
+                            break
+                        end
+                        if table.find(vu41, v47.Name) then
+                            local v48, v49, v50 = pairs(v47:GetChildren())
+                            while true do
+                                local v51
+                                v50, v51 = v48(v49, v50)
+                                if v50 == nil then
+                                    break
+                                end
+                                if v51:IsA("MeshPart") then
+                                    vu19.Network.TakeBottleCap:FireServer(v51)
+                                end
+                            end
+                            vu19.Network.TakeBottleCap:FireServer(v47)
+                            v47:Destroy()
+                        end
+                    end
+                    vu36:Notify({
+                        Title = "Caps!",
+                        Description = "Collected bottlecaps."
+                    }, {
+                        OutlineColor = Color3.fromRGB(0, 0, 255),
+                        Time = 1,
+                        Type = "image"
+                    }, {
+                        Image = "http://www.roblox.com/asset/?id=17860774372",
+                        ImageColor = Color3.fromRGB(255, 255, 255)
+                    })
+                end
+                task.wait(0.1)
+            end
+        end)
+    end)
+    v39:AddToggle("Auto Delete Turrets", "You can steal items in shop", false, function(pu52)
+        task.spawn(function()
+            Config.Turrets = pu52
+            while Config.Turrets do
+                local v53, v54, v55 = pairs(workspace.modelspoint:GetDescendants())
+                while true do
+                    local v56
+                    v55, v56 = v53(v54, v55)
+                    if v55 == nil then
+                        break
+                    end
+                    if v56.Name == "building" and v56:IsA("Model") then
+                        local v57, v58, v59 = pairs(v56:GetChildren())
+                        while true do
+                            local v60
+                            v59, v60 = v57(v58, v59)
+                            if v59 == nil then
+                                break
+                            end
+                            if v60.Name == "Turret" or v60.Name == "Turret2" then
+                                vu19.teleport:FireServer(v60, Vector3.new(math.huge, math.huge, math.huge))
+                            end
+                        end
+                    end
+                end
+                local v61, v62, v63 = pairs(workspace.buildings:GetChildren())
+                while true do
+                    local v64
+                    v63, v64 = v61(v62, v63)
+                    if v63 == nil then
+                        break
+                    end
+                    if v64.Name == "Shop" and v64:IsA("Model") then
+                        local v65, v66, v67 = pairs(v64:GetChildren())
+                        while true do
+                            local v68
+                            v67, v68 = v65(v66, v67)
+                            if v67 == nil then
+                                break
+                            end
+                            if v68.Name == "Turret" or v68.Name == "Turret2" then
+                                vu19.teleport:FireServer(v68, Vector3.new(math.huge, math.huge, math.huge))
+                            end
+                        end
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end)
+    v39:AddButton("Eat Food", "Eat food in map", function()
+        local v69 = vu20
+        local v70, v71, v72 = pairs(v69:GetDescendants())
+        while true do
+            local v73
+            v72, v73 = v70(v71, v72)
+            if v72 == nil then
+                break
+            end
+            if v73:FindFirstChild("hunger") then
+                vu19:WaitForChild("eat"):InvokeServer(v73)
+                return
+            end
+        end
+        vu36:Notify({
+            Title = "Error...",
+            Description = "Food not found in map."
+        }, {
+            OutlineColor = Color3.fromRGB(0, 0, 255),
+            Time = 5,
+            Type = "image"
+        }, {
+            Image = "http://www.roblox.com/asset/?id=17860774372",
+            ImageColor = Color3.fromRGB(255, 255, 255)
+        })
+    end)
+    local vu74 = vu20.CurrentCamera
+    local vu75 = game:GetService("RunService")
+    local function vu86(pu76, p77)
+        local vu78 = Drawing.new("Text")
+        vu78.Visible = false
+        vu78.Center = true
+        vu78.Outline = true
+        vu78.Color = p77
+        vu78.Size = 12
+        local vu79 = Drawing.new("Line")
+        vu79.Visible = false
+        vu79.Color = p77
+        vu79.Thickness = 1
+        local vu80 = nil
+        vu80 = vu75.RenderStepped:Connect(function()
+            if Settings.Enabled and pu76.Parent ~= nil then
+                local v81, v82 = vu74:WorldToViewportPoint(pu76:GetPivot().Position)
+                if Settings.Line and v82 then
+                    vu79.From = Vector2.new(vu74.ViewportSize.X / 2, vu74.ViewportSize.Y / 1)
+                    vu79.To = Vector2.new(v81.X, v81.Y)
+                    vu79.Visible = true
+                else
+                    vu79.Visible = false
+                end
+                if v82 then
+                    local v83 = vu10
+                    local v84 = pu76
+                    local v85 = math.floor(v83:DistanceFromCharacter(v84:GetPivot().Position))
+                    vu78.Position = Vector2.new(v81.X, v81.Y)
+                    if Settings.Distance then
+                        vu78.Text = pu76.Name .. " | Distance: " .. v85
+                    else
+                        vu78.Text = pu76.Name
+                    end
+                    vu78.Visible = true
+                else
+                    vu78.Visible = false
+                end
+            else
+                vu79.Visible = false
+                vu78.Visible = false
+                vu80:Disconnect()
+            end
+        end)
+    end
+    local function vu99(pu87, p88)
+        local vu89 = Drawing.new("Text")
+        vu89.Visible = false
+        vu89.Center = true
+        vu89.Outline = true
+        vu89.Color = p88
+        vu89.Size = 12
+        local vu90 = Drawing.new("Line")
+        vu90.Visible = false
+        vu90.Color = p88
+        vu90.Thickness = 1
+        local vu91 = nil
+        vu91 = vu75.RenderStepped:Connect(function()
+            if Settings.Mobs and (pu87:FindFirstChild("Humanoid") and pu87.Humanoid.Health > 0) then
+                local v92, v93 = vu74:WorldToViewportPoint(pu87:GetPivot().Position)
+                if Settings.Line and v93 then
+                    vu90.From = Vector2.new(vu74.ViewportSize.X / 2, vu74.ViewportSize.Y / 1)
+                    vu90.To = Vector2.new(v92.X, v92.Y)
+                    vu90.Visible = true
+                else
+                    vu90.Visible = false
+                end
+                if v93 then
+                    local v94 = vu10
+                    local v95 = pu87
+                    local v96 = math.floor(v94:DistanceFromCharacter(v95:GetPivot().Position))
+                    vu89.Position = Vector2.new(v92.X, v92.Y)
+                    if Settings.Distance then
+                        local v97 = pu87
+                        vu89.Text = pu87.Name .. " | Health: " .. v97:FindFirstChildWhichIsA("Humanoid").Health .. " | Distance: " .. v96
+                    else
+                        local v98 = pu87
+                        vu89.Text = pu87.Name .. " | Health: " .. v98:FindFirstChildWhichIsA("Humanoid").Health
+                    end
+                    vu89.Visible = true
+                else
+                    vu89.Visible = false
+                end
+            else
+                vu90.Visible = false
+                vu89.Visible = false
+                vu91:Disconnect()
+            end
+        end)
+    end
+    getgenv().Settings = {
+        Item = "",
+        Enabled = false,
+        Distance = false,
+        Line = false,
+        Mobs = false,
+        Name = false
+    }
+    local v100 = {
+        "Engine",
+        "radiator",
+        "Wheel",
+        "GasCan",
+        "DieselCan",
+        "OilCan",
+        "WaterCan",
+        "hood",
+        "FL",
+        "grill",
+        "rightlight",
+        "leftlight",
+        "back",
+        "FR",
+        "frontbumper",
+        "FR2",
+        "RR",
+        "RL",
+        "FL2",
+        "hood2",
+        "enginehood",
+        "back2",
+        "rearbumper",
+        "Pistol",
+        "AK47",
+        "RPG",
+        "Mac10",
+        "Pike",
+        "AMMO_CRATE",
+        "C4",
+        "Shield",
+        "axe",
+        "Katana",
+        "dynamite",
+        "PumpShotgun",
+        "Apple",
+        "banana",
+        "Bread",
+        "Peper",
+        "Onion",
+        "Pizza",
+        "Donut",
+        "Burger",
+        "t",
+        "Bar"
+    }
+    vu20.DescendantAdded:Connect(function(p101)
+        if p101:IsA("Part") and (p101.Name == "HumanoidRootPart" and not p101.Anchored) and (p101.Parent:FindFirstChildWhichIsA("Humanoid") and (string.len(p101.Parent.Humanoid.DisplayName) == 0 and p101.Parent.Humanoid.Health > 0)) then
+            vu99(p101.Parent, Color3.fromRGB(255, 0, 0))
+        end
+    end)
+    vu20.DescendantAdded:Connect(function(p102)
+        if p102:IsA("Model") and p102.Name == Settings.Item then
+            vu86(p102, Color3.fromRGB(255, 255, 255))
+        end
+    end)
+    local v103 = v37:NewTab("ESP"):AddSection("Main")
+    v103:AddDropdown("Items", "???", v100, v100[1], function(pu104)
+        task.spawn(function()
+            Settings.Item = pu104
+        end)
+    end)
+    v103:AddToggle("Enable ESP", "???", false, function(pu105)
+        task.spawn(function()
+            if Settings.Item ~= "" then
+                Settings.Enabled = pu105
+                local v106 = vu20
+                local v107, v108, v109 = ipairs(v106:GetDescendants())
+                while true do
+                    local v110
+                    v109, v110 = v107(v108, v109)
+                    if v109 == nil then
+                        break
+                    end
+                    if v110.Name == Settings.Item then
+                        vu86(v110, Color3.fromRGB(255, 255, 255))
+                    end
+                end
+            else
+                vu36:Notify({
+                    Title = "Error...",
+                    Description = "Item Not Selected"
+                }, {
+                    OutlineColor = Color3.fromRGB(0, 0, 255),
+                    Time = 3,
+                    Type = "image"
+                }, {
+                    Image = "http://www.roblox.com/asset/?id=17860774372",
+                    ImageColor = Color3.fromRGB(255, 255, 255)
+                })
+            end
+        end)
+    end)
+    v103:AddToggle("Mobs ESP", "ESP all mobs", false, function(pu111)
+        task.spawn(function()
+            Settings.Mobs = pu111
+            local v112 = vu20
+            local v113, v114, v115 = ipairs(v112:GetDescendants())
+            while true do
+                local v116
+                v115, v116 = v113(v114, v115)
+                if v115 == nil then
+                    break
+                end
+                if v116:IsA("Part") and (v116.Name == "HumanoidRootPart" and not v116.Anchored) and (v116.Parent:FindFirstChildWhichIsA("Humanoid") and (string.len(v116.Parent.Humanoid.DisplayName) == 0 and v116.Parent.Humanoid.Health > 0)) then
+                    vu99(v116.Parent, Color3.fromRGB(255, 0, 0))
+                end
+            end
+        end)
+    end)
+    v103:AddToggle("Enable Distance", "Shows the distance to the item", false, function(pu117)
+        task.spawn(function()
+            Settings.Distance = pu117
+        end)
+    end)
+    v103:AddToggle("Enable Line", "Shows the line to the item", false, function(pu118)
+        task.spawn(function()
+            Settings.Line = pu118
+        end)
+    end)
+    local v119 = v37:NewTab("Quests"):AddSection("Main")
+    local function vu131(p120, p121)
+        local v122, v123, v124 = ipairs(vu20.RoadPrefabs:GetChildren())
+        local v125 = nil
+        while true do
+            local v126
+            v124, v126 = v122(v123, v124)
+            if v124 == nil then
+                break
+            end
+            if v126:IsA("Model") and v126.Name == p120 then
+                local v127, v128, v129 = ipairs(v126:GetDescendants())
+                while true do
+                    local v130
+                    v129, v130 = v127(v128, v129)
+                    if v129 == nil then
+                        break
+                    end
+                    if v130:IsA("Part") then
+                        if v130.Name == p121 then
+                            v125 = v130
+                        end
+                    end
+                end
+            end
+        end
+        return v125
+    end
+    v119:AddToggle("Complete Forest Quest | 6.5km", "???", false, function(pu132)
+        task.spawn(function()
+            Config.Forest = pu132
+            while Config.Forest do
+                local v133 = vu131("FantasyForest", "Start")
+                if v133 then
+                    vu10.Character:PivotTo(v133:GetPivot() * CFrame.new(- 400, 5, - 285))
+                    local v134, v135, v136 = ipairs(vu20.RoadPrefabs:GetDescendants())
+                    while true do
+                        local v137
+                        v136, v137 = v134(v135, v136)
+                        if v136 == nil then
+                            break
+                        end
+                        if v137.Name == "PlantBoss" and v137:FindFirstChildWhichIsA("Humanoid") then
+                            for _ = 1, 50 do
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v137)
+                            end
+                        end
+                    end
+                    local v138 = vu20
+                    local v139, v140, v141 = pairs(v138:GetChildren())
+                    while true do
+                        local v142
+                        v141, v142 = v139(v140, v141)
+                        if v141 == nil then
+                            break
+                        end
+                        if string.find(v142.Name, "Double Barrel") or string.find(v142.Name, "Green Potion") then
+                            vu19.teleport:FireServer(v142, vu10.Character:GetPivot() * Vector3.new(0, - 4, - 5))
+                        end
+                    end
+                else
+                    local v143, v144, v145 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v146
+                        v145, v146 = v143(v144, v145)
+                        if v145 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v146:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    v119:AddToggle("Complete PowerPlant Quest | 7km", "???", false, function(pu147)
+        task.spawn(function()
+            Config.PowerPlant = pu147
+            while Config.PowerPlant do
+                local v148 = vu131("PowerPlant", "Start")
+                if v148 then
+                    vu10.Character:PivotTo(v148:GetPivot() * CFrame.new(250, 5, - 333))
+                    local v149, v150, v151 = ipairs(vu20.RoadPrefabs.PowerPlant:GetChildren())
+                    while true do
+                        local v152
+                        v151, v152 = v149(v150, v151)
+                        if v151 == nil then
+                            break
+                        end
+                        if v152.Name == "ChefBoss" and (v152:FindFirstChildWhichIsA("Humanoid") and v152:FindFirstChildWhichIsA("Humanoid").Health > 0) then
+                            for _ = 1, 50 do
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v152)
+                            end
+                        end
+                    end
+                    local v153, v154, v155 = pairs(vu20.RoadPrefabs.PowerPlant:GetChildren())
+                    while true do
+                        local v156
+                        v155, v156 = v153(v154, v155)
+                        if v155 == nil then
+                            break
+                        end
+                        if string.find(v156.Name, "Voltage Blaster") then
+                            vu19.teleport:FireServer(v156, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                        end
+                    end
+                else
+                    local v157, v158, v159 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v160
+                        v159, v160 = v157(v158, v159)
+                        if v159 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v160:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    v119:AddToggle("Complete Farmer Quest | 6.6-7.5km", "???", false, function(pu161)
+        task.spawn(function()
+            Config.Egg = pu161
+            while Config.Egg do
+                local v162 = vu131("Farm", "DetectIfNear")
+                local v163 = vu131("FarmStopBefore", "HumanoidRootPart")
+                if v162 then
+                    if v163 and vu20:FindFirstChild("Golden Egg") then
+                        vu10.Character:PivotTo(v163:GetPivot() * CFrame.new(- 1, 5, 0))
+                        local v164 = vu20
+                        local v165, v166, v167 = pairs(v164:GetChildren())
+                        while true do
+                            local v168
+                            v167, v168 = v165(v166, v167)
+                            if v167 == nil then
+                                break
+                            end
+                            if v168.Name == "Golden Egg" then
+                                vu19.teleport:FireServer(v168, vu10.Character:GetPivot() * Vector3.new(0, - 5, - 3))
+                            end
+                        end
+                    else
+                        vu10.Character:PivotTo(v162:GetPivot() * CFrame.new(- 120, 34, 40))
+                        local v169, v170, v171 = ipairs(vu20.RoadPrefabs:GetDescendants())
+                        while true do
+                            local v172
+                            v171, v172 = v169(v170, v171)
+                            if v171 == nil then
+                                break
+                            end
+                            if v172.Name == "FarmBoss" or (v172.Name == "Mutant" or (v172.Name == "Buff" or v172.Name == "Sprinter" and v172:FindFirstChildWhichIsA("Humanoid"))) then
+                                for _ = 1, 20 do
+                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v172)
+                                end
+                            end
+                        end
+                    end
+                else
+                    local v173, v174, v175 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v176
+                        v175, v176 = v173(v174, v175)
+                        if v175 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v176:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    v119:AddToggle("Complete Golf Cart Quest | 9km", "???", false, function(pu177)
+        task.spawn(function()
+            Config.PowerPlant = pu177
+            while Config.PowerPlant do
+                local v178 = vu131("Funky Golf", "Start")
+                if v178 then
+                    vu10.Character:PivotTo(v178:GetPivot() * CFrame.new(125, 5, - 425))
+                    local v179, v180, v181 = ipairs(vu20.RoadPrefabs["Funky Golf"].Mutants:GetChildren())
+                    while true do
+                        local v182
+                        v181, v182 = v179(v180, v181)
+                        if v181 == nil then
+                            break
+                        end
+                        if v182.Name == "Mutant" and (v182:FindFirstChildWhichIsA("Humanoid") and v182:FindFirstChildWhichIsA("Humanoid").Health > 0) then
+                            for _ = 1, 10 do
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v182)
+                            end
+                        end
+                    end
+                    local v183, v184, v185 = pairs(vu20.RoadPrefabs["Funky Golf"].GolfArms:GetChildren())
+                    while true do
+                        local v186
+                        v185, v186 = v183(v184, v185)
+                        if v185 == nil then
+                            break
+                        end
+                        if string.find(v186.Name, "Golf Club") then
+                            vu19.teleport:FireServer(v186, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                        end
+                    end
+                else
+                    local v187, v188, v189 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v190
+                        v189, v190 = v187(v188, v189)
+                        if v189 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v190:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    v119:AddToggle("Complete Diner Quest | 13km", "???", false, function(pu191)
+        task.spawn(function()
+            Config.Diner = pu191
+            while Config.Diner do
+                local v192 = vu131("Diner", "PrimaryPart")
+                if v192 then
+                    vu10.Character:PivotTo(v192:GetPivot() * CFrame.new(0, 5, 0))
+                    local v193, v194, v195 = ipairs(vu20.RoadPrefabs.Diner:GetDescendants())
+                    while true do
+                        local v196
+                        v195, v196 = v193(v194, v195)
+                        if v195 == nil then
+                            break
+                        end
+                        if (v196.Name == "Chef Mutant" or v196.Name == "ChefBoss" and v196:FindFirstChildWhichIsA("Humanoid")) and v196:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                            for _ = 1, 30 do
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v196)
+                            end
+                        end
+                    end
+                    local v197, v198, v199 = pairs(vu20.RoadPrefabs.Diner:GetChildren())
+                    while true do
+                        local v200
+                        v199, v200 = v197(v198, v199)
+                        if v199 == nil then
+                            break
+                        end
+                        if string.find(v200.Name, "Transmorph Gun") then
+                            vu19.teleport:FireServer(v200, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                        end
+                    end
+                else
+                    local v201, v202, v203 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v204
+                        v203, v204 = v201(v202, v203)
+                        if v203 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v204:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    v119:AddToggle("Complete Space Quest | 20km", "???", false, function(pu205)
+        task.spawn(function()
+            Config.Space = pu205
+            while Config.Space do
+                local v206 = vu131("SpaceLaunch", "Screen")
+                if v206 then
+                    local v207 = vu20.RoadPrefabs.SpaceLaunch
+                    if v207.Screen.SurfaceGui.Percentage.Text ~= "0%" then
+                        if v207.Screen.SurfaceGui.Percentage.Text ~= "100%" then
+                            vu10.Character:PivotTo(v206:GetPivot() * CFrame.new(20, - 7, 0))
+                            local v208 = vu20
+                            local v209, v210, v211 = pairs(v208:GetChildren())
+                            while true do
+                                local v212
+                                v211, v212 = v209(v210, v211)
+                                if v211 == nil then
+                                    break
+                                end
+                                if (string.find(v212.Name, "Mutant") or string.find(v212.Name, "HazMauler") and v212:FindFirstChildWhichIsA("Humanoid")) and v212:FindFirstChildWhichIsA("Humanoid") then
+                                    game.ReplicatedStorage.teleport:FireServer(v212, Vector3.new(math.huge, - math.huge, math.huge))
+                                end
+                            end
+                            vu36:Notify({
+                                Title = "Quest!",
+                                Description = "Percent Now: " .. v207.Screen.SurfaceGui.Percentage.Text
+                            }, {
+                                OutlineColor = Color3.fromRGB(0, 0, 255),
+                                Time = 2,
+                                Type = "image"
+                            }, {
+                                Image = "http://www.roblox.com/asset/?id=17860774372",
+                                ImageColor = Color3.fromRGB(255, 255, 255)
+                            })
+                            task.wait(1)
+                        else
+                            vu36:Notify({
+                                Title = "Done!",
+                                Description = "Quest Completed."
+                            }, {
+                                OutlineColor = Color3.fromRGB(0, 0, 255),
+                                Time = 2,
+                                Type = "image"
+                            }, {
+                                Image = "http://www.roblox.com/asset/?id=17860774372",
+                                ImageColor = Color3.fromRGB(255, 255, 255)
+                            })
+                            task.wait(1)
+                        end
+                    else
+                        vu10.Character:PivotTo(v206:GetPivot() * CFrame.new(4, 0, 0))
+                        task.wait(2)
+                        fireproximityprompt(v207.Screen.ProximityPrompt)
+                        vu36:Notify({
+                            Title = "Quest!",
+                            Description = "Wait 10 seconds."
+                        }, {
+                            OutlineColor = Color3.fromRGB(0, 0, 255),
+                            Time = 8,
+                            Type = "image"
+                        }, {
+                            Image = "http://www.roblox.com/asset/?id=17860774372",
+                            ImageColor = Color3.fromRGB(255, 255, 255)
+                        })
+                        task.wait(8)
+                    end
+                else
+                    local v213, v214, v215 = ipairs(vu20.Map.Points:GetChildren())
+                    while true do
+                        local v216
+                        v215, v216 = v213(v214, v215)
+                        if v215 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v216:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    local vu217 = v37:NewTab("Items")
+    local v218 = vu217
+    local v219 = vu217.AddSection(v218, "Items")
+    local v220 = vu217
+    local v221 = vu217.AddSection(v220, "Weapons")
+    local v222 = vu217
+    local v223 = vu217.AddSection(v222, "Vehicle")
+    local v224 = vu217
+    local v225 = vu217.AddSection(v224, "Others")
+    local vu226 = {
+        "Wheel",
+        "Engine",
+        "Radiator",
+        "GasCan",
+        "OilCan",
+        "WaterCan",
+        "DieselCan",
+        "oilcan",
+        "Pistol",
+        "AK47",
+        "RPG",
+        "Mac10",
+        "Pike",
+        "AMMO_CRATE",
+        "C4",
+        "Shield",
+        "axe",
+        "Katana",
+        "dynamite",
+        "PumpShotgun",
+        "Barrel",
+        "Bowlball",
+        "Glassbottle",
+        "toilet",
+        "vaza",
+        "vaz",
+        "Keyboard",
+        "Ball",
+        "Siren2",
+        "Brick",
+        "spraypaint",
+        "Cone",
+        "Siren",
+        "RadioactiveBarrel",
+        "oilcan",
+        "Phone",
+        "Skateboard",
+        "Cone",
+        "Comic1",
+        "Comic2",
+        "Comic3",
+        "Comic4",
+        "Comic5",
+        "Comic6",
+        "DogTag"
+    }
+    v219:AddDropdown("Items", "Find selected item in map", vu226, vu226[1], function(p227)
+        vu226 = p227
+    end)
+    v219:AddToggle("Find Selected Item", "Automatic find selected item in map", false, function(pu228)
+        task.spawn(function()
+            Config.Find = pu228
+            while Config.Find do
+                vu10.Character:PivotTo(vu20.Map.Points:WaitForChild(tostring(vu35)):GetPivot() + Vector3.new(0, 5, 0))
+                vu35 = vu35 + 1
+                local v229 = vu20
+                local v230, v231, v232 = pairs(v229:GetChildren())
+                while true do
+                    local v233
+                    v232, v233 = v230(v231, v232)
+                    if v232 == nil then
+                        break
+                    end
+                    if v233:IsA("Model") then
+                        local v234, v235, v236 = pairs(v233:GetChildren())
+                        while true do
+                            local v237
+                            v236, v237 = v234(v235, v236)
+                            if v236 == nil then
+                                break
+                            end
+                            if v237.Name == vu226 then
+                                vu19.teleport:FireServer(v237, vu10.Character:GetPivot() * Vector3.new(0, 0, - 20))
+                            end
+                        end
+                    end
+                end
+                local v238 = vu20
+                local v239, v240, v241 = pairs(v238:GetChildren())
+                while true do
+                    local v242
+                    v241, v242 = v239(v240, v241)
+                    if v241 == nil then
+                        break
+                    end
+                    if v242.Name == vu226 then
+                        vu19.teleport:FireServer(v242, vu10.Character:GetPivot() * Vector3.new(0, 0, - 10))
+                    end
+                end
+                task.wait(0.5)
+            end
+        end)
+    end)
+    v221:AddButton("Bring Weapons", "Bring weapons to the player", function()
+        local v243 = vu20
+        local v244, v245, v246 = pairs(v243:GetChildren())
+        while true do
+            local v247
+            v246, v247 = v244(v245, v246)
+            if v246 == nil then
+                break
+            end
+            if table.find(vu29, v247.Name) then
+                vu19.teleport:FireServer(v247, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v248, v249, v250 = pairs(vu20.RoadPrefabs:GetChildren())
+        while true do
+            local v251
+            v250, v251 = v248(v249, v250)
+            if v250 == nil then
+                break
+            end
+            if v251:IsA("Model") then
+                local v252, v253, v254 = ipairs(v251:GetChildren())
+                while true do
+                    local v255
+                    v254, v255 = v252(v253, v254)
+                    if v254 == nil then
+                        break
+                    end
+                    if string.find(v255.Name, "RopeGun") then
+                        vu19.teleport:FireServer(v255, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+    end)
+    v221:AddButton("Bring Melee Weapons", "Bring melee weapons to the player", function()
+        local v256 = vu20
+        local v257, v258, v259 = pairs(v256:GetDescendants())
+        while true do
+            local v260
+            v259, v260 = v257(v258, v259)
+            if v259 == nil then
+                break
+            end
+            if table.find(vu31, v260.Name) then
+                vu19.teleport:FireServer(v260, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v221:AddButton("Bring Explosive Weapons", "Bring explosive weapons to the player", function()
+        local v261 = vu20
+        local v262, v263, v264 = pairs(v261:GetDescendants())
+        while true do
+            local v265
+            v264, v265 = v262(v263, v264)
+            if v264 == nil then
+                break
+            end
+            if table.find(vu32, v265.Name) then
+                vu19.teleport:FireServer(v265, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v223:AddButton("Bring All VehicleParts", "Bring vehicleparts to the player", function()
+        local v266 = vu20
+        local v267, v268, v269 = pairs(v266:GetChildren())
+        while true do
+            local v270
+            v269, v270 = v267(v268, v269)
+            if v269 == nil then
+                break
+            end
+            if table.find(vu30, v270.Name) then
+                vu19.teleport:FireServer(v270, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v271 = vu20
+        local v272, v273, v274 = pairs(v271:GetChildren())
+        while true do
+            local v275
+            v274, v275 = v272(v273, v274)
+            if v274 == nil then
+                break
+            end
+            if v275:IsA("Model") then
+                local v276, v277, v278 = ipairs(v275:GetChildren())
+                while true do
+                    local v279
+                    v278, v279 = v276(v277, v278)
+                    if v278 == nil then
+                        break
+                    end
+                    if string.find(v279.Name, "GasCan") or (string.find(v279.Name, "radiator") or table.find(vu30, v279.Name)) then
+                        vu19.teleport:FireServer(v279, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v280, v281, v282 = pairs(vu20.RoadPrefabs:GetChildren())
+        while true do
+            local v283
+            v282, v283 = v280(v281, v282)
+            if v282 == nil then
+                break
+            end
+            if v283:IsA("Model") then
+                local v284, v285, v286 = ipairs(v283:GetChildren())
+                while true do
+                    local v287
+                    v286, v287 = v284(v285, v286)
+                    if v286 == nil then
+                        break
+                    end
+                    if string.find(v287.Name, "Engine") then
+                        vu19.teleport:FireServer(v287, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v288 = vu20
+        local v289, v290, v291 = pairs(v288:GetChildren())
+        while true do
+            local v292
+            v291, v292 = v289(v290, v291)
+            if v291 == nil then
+                break
+            end
+            if v292:IsA("Model") then
+                local v293, v294, v295 = ipairs(v292:GetChildren())
+                while true do
+                    local v296
+                    v295, v296 = v293(v294, v295)
+                    if v295 == nil then
+                        break
+                    end
+                    if string.find(v296.Name, "GasCan") or (string.find(v296.Name, "OilCan") or (string.find(v296.Name, "WaterCan") or string.find(v296.Name, "DieselCan"))) then
+                        vu19.teleport:FireServer(v296, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v297, v298, v299 = pairs(vu20.RoadPrefabs:GetChildren())
+        while true do
+            local v300
+            v299, v300 = v297(v298, v299)
+            if v299 == nil then
+                break
+            end
+            if v300:IsA("Model") then
+                local v301, v302, v303 = ipairs(v300:GetChildren())
+                while true do
+                    local v304
+                    v303, v304 = v301(v302, v303)
+                    if v303 == nil then
+                        break
+                    end
+                    if string.find(v304.Name, "GasCan") or (string.find(v304.Name, "OilCan") or (string.find(v304.Name, "WaterCan") or string.find(v304.Name, "DieselCan"))) then
+                        vu19.teleport:FireServer(v304, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+    end)
+    v223:AddButton("Bring Engine", "Bring engines to the player", function()
+        local v305 = vu20
+        local v306, v307, v308 = pairs(v305:GetChildren())
+        while true do
+            local v309
+            v308, v309 = v306(v307, v308)
+            if v308 == nil then
+                break
+            end
+            if (v309:GetAttribute("PickupSound") or v309:FindFirstChild("hp")) and v309:FindFirstChild("hp") then
+                vu19.teleport:FireServer(v309, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v310 = vu20
+        local v311, v312, v313 = pairs(v310:GetChildren())
+        while true do
+            local v314
+            v313, v314 = v311(v312, v313)
+            if v313 == nil then
+                break
+            end
+            if v314:IsA("Model") then
+                local v315, v316, v317 = ipairs(v314:GetChildren())
+                while true do
+                    local v318
+                    v317, v318 = v315(v316, v317)
+                    if v317 == nil then
+                        break
+                    end
+                    if string.find(v318.Name, "Engine") then
+                        vu19.teleport:FireServer(v318, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v319, v320, v321 = pairs(vu20.RoadPrefabs:GetChildren())
+        while true do
+            local v322
+            v321, v322 = v319(v320, v321)
+            if v321 == nil then
+                break
+            end
+            if v322:IsA("Model") then
+                local v323, v324, v325 = ipairs(v322:GetChildren())
+                while true do
+                    local v326
+                    v325, v326 = v323(v324, v325)
+                    if v325 == nil then
+                        break
+                    end
+                    if string.find(v326.Name, "Engine") then
+                        vu19.teleport:FireServer(v326, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+    end)
+    v223:AddButton("Bring Radiator", "Bring radiators to the player", function()
+        local v327 = vu20
+        local v328, v329, v330 = pairs(v327:GetDescendants())
+        while true do
+            local v331
+            v330, v331 = v328(v329, v330)
+            if v330 == nil then
+                break
+            end
+            if (v331:GetAttribute("PickupSound") or v331:FindFirstChild("water")) and v331:FindFirstChild("power") then
+                vu19.teleport:FireServer(v331, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v332 = vu20
+        local v333, v334, v335 = pairs(v332:GetChildren())
+        while true do
+            local v336
+            v335, v336 = v333(v334, v335)
+            if v335 == nil then
+                break
+            end
+            if v336:IsA("Model") then
+                local v337, v338, v339 = ipairs(v336:GetChildren())
+                while true do
+                    local v340
+                    v339, v340 = v337(v338, v339)
+                    if v339 == nil then
+                        break
+                    end
+                    if string.find(v340.Name, "radiator") or string.find(v340.Name, "Radiator") then
+                        vu19.teleport:FireServer(v340, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+    end)
+    v223:AddButton("Bring Wheel", "Bring wheels to the player", function()
+        local v341 = vu20
+        local v342, v343, v344 = pairs(v341:GetChildren())
+        while true do
+            local v345
+            v344, v345 = v342(v343, v344)
+            if v344 == nil then
+                break
+            end
+            if v345:IsA("Model") then
+                local v346, v347, v348 = pairs(v345:GetChildren())
+                while true do
+                    local v349
+                    v348, v349 = v346(v347, v348)
+                    if v348 == nil then
+                        break
+                    end
+                    if v349.Name == "Wheel" then
+                        vu19.teleport:FireServer(v349, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v350 = vu20
+        local v351, v352, v353 = pairs(v350:GetChildren())
+        while true do
+            local v354
+            v353, v354 = v351(v352, v353)
+            if v353 == nil then
+                break
+            end
+            if v354.Name == "Wheel" then
+                vu19.teleport:FireServer(v354, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v223:AddButton("Bring Glowing Items", "Bring glowing items to the player", function()
+        local v355 = vu20
+        local v356, v357, v358 = pairs(v355:GetDescendants())
+        while true do
+            local v359
+            v358, v359 = v356(v357, v358)
+            if v358 == nil then
+                break
+            end
+            if (v359:GetAttribute("PickupSound") or v359:FindFirstChild("activate2")) and v359:FindFirstChild("activate") then
+                vu19.teleport:FireServer(v359, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v223:AddButton("Bring All Cans", "Bring cans to the player", function()
+        local v360 = vu20
+        local v361, v362, v363 = pairs(v360:GetDescendants())
+        while true do
+            local v364
+            v363, v364 = v361(v362, v363)
+            if v363 == nil then
+                break
+            end
+            if string.find(v364.Name, "GasCan") or (string.find(v364.Name, "OilCan") or (string.find(v364.Name, "WaterCan") or (string.find(v364.Name, "DieselCan") or string.find(v364.Name, "oilcan")))) then
+                vu19.teleport:FireServer(v364, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring Food", "Bring foods to the player", function()
+        local v365 = vu20
+        local v366, v367, v368 = pairs(v365:GetDescendants())
+        while true do
+            local v369
+            v368, v369 = v366(v367, v368)
+            if v368 == nil then
+                break
+            end
+            if (v369:GetAttribute("PickupSound") or v369:FindFirstChild("hunger")) and v369:FindFirstChild("hunger") then
+                vu19.teleport:FireServer(v369, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring Radio", "Bring radio to the player", function()
+        local v370 = vu20
+        local v371, v372, v373 = pairs(v370:GetDescendants())
+        while true do
+            local v374
+            v373, v374 = v371(v372, v373)
+            if v373 == nil then
+                break
+            end
+            if v374.Name == "SpecialRadio" then
+                vu19.teleport:FireServer(v374, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring DogTag", "Bring dogtags to the player", function()
+        local v375 = vu20
+        local v376, v377, v378 = pairs(v375:GetDescendants())
+        while true do
+            local v379
+            v378, v379 = v376(v377, v378)
+            if v378 == nil then
+                break
+            end
+            if v379.Name == "DogTag" then
+                vu19.teleport:FireServer(v379, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring Comic", "Bring comics to the player", function()
+        local v380 = vu20
+        local v381, v382, v383 = pairs(v380:GetDescendants())
+        while true do
+            local v384
+            v383, v384 = v381(v382, v383)
+            if v383 == nil then
+                break
+            end
+            if table.find(vu33, v384.Name) then
+                vu19.teleport:FireServer(v384, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring RareItems", "Bring rareitems to the player", function()
+        local v385 = vu20
+        local v386, v387, v388 = pairs(v385:GetDescendants())
+        while true do
+            local v389
+            v388, v389 = v386(v387, v388)
+            if v388 == nil then
+                break
+            end
+            if table.find(vu22, v389.Name) then
+                vu19.teleport:FireServer(v389, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring BottleCap", "Bring bottlecaps to the player", function()
+        local v390 = vu20
+        local v391, v392, v393 = pairs(v390:GetDescendants())
+        while true do
+            local v394
+            v393, v394 = v391(v392, v393)
+            if v393 == nil then
+                break
+            end
+            if table.find(vu41, v394.Name) then
+                vu19.teleport:FireServer(v394, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    v225:AddButton("Bring All Items", "Bring all items to the player", function()
+        local v395 = vu20
+        local v396, v397, v398 = pairs(v395:GetChildren())
+        while true do
+            local v399
+            v398, v399 = v396(v397, v398)
+            if v398 == nil then
+                break
+            end
+            if (v399:GetAttribute("PickupSound") or v399:FindFirstChild("chance")) and (not v399:FindFirstChild("target") or v399.target.Value == nil) then
+                vu19.teleport:FireServer(v399, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v400 = vu20
+        local v401, v402, v403 = pairs(v400:GetChildren())
+        while true do
+            local v404
+            v403, v404 = v401(v402, v403)
+            if v403 == nil then
+                break
+            end
+            if v404:IsA("Model") then
+                local v405, v406, v407 = ipairs(v404:GetChildren())
+                while true do
+                    local v408
+                    v407, v408 = v405(v406, v407)
+                    if v407 == nil then
+                        break
+                    end
+                    if v408:IsA("Model") and v408:FindFirstChild("target") then
+                        vu19.teleport:FireServer(v408, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v409 = vu20
+        local v410, v411, v412 = pairs(v409:GetChildren())
+        while true do
+            local v413
+            v412, v413 = v410(v411, v412)
+            if v412 == nil then
+                break
+            end
+            if v413:IsA("Model") then
+                local v414, v415, v416 = ipairs(v413:GetChildren())
+                while true do
+                    local v417
+                    v416, v417 = v414(v415, v416)
+                    if v416 == nil then
+                        break
+                    end
+                    if string.find(v417.Name, "Part") and (v417:FindFirstChild("Weld") or v417:FindFirstChild("Metal023_2K")) then
+                        vu19.teleport:FireServer(v413, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+                    end
+                end
+            end
+        end
+        local v418 = vu20
+        local v419, v420, v421 = pairs(v418:GetChildren())
+        while true do
+            local v422
+            v421, v422 = v419(v420, v421)
+            if v421 == nil then
+                break
+            end
+            if v422:IsA("Model") and (v422:GetAttribute("PickupSound") or v422:FindFirstChild("KnightHelmet")) then
+                vu19.teleport:FireServer(v422, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v423 = vu20
+        local v424, v425, v426 = pairs(v423:GetChildren())
+        while true do
+            local v427
+            v426, v427 = v424(v425, v426)
+            if v426 == nil then
+                break
+            end
+            if table.find(vu30, v427.Name) then
+                vu19.teleport:FireServer(v427, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v428 = vu20
+        local v429, v430, v431 = pairs(v428:GetChildren())
+        while true do
+            local v432
+            v431, v432 = v429(v430, v431)
+            if v431 == nil then
+                break
+            end
+            if table.find(vu217, v432.Name) then
+                vu19.teleport:FireServer(v432, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+        local v433 = vu20
+        local v434, v435, v436 = pairs(v433:GetChildren())
+        while true do
+            local v437
+            v436, v437 = v434(v435, v436)
+            if v436 == nil then
+                break
+            end
+            if v437:IsA("Model") and v437:FindFirstChild("Game") then
+                vu19.teleport:FireServer(v437, vu10.Character:GetPivot() * Vector3.new(0, 0, - 5))
+            end
+        end
+    end)
+    local v438 = v37:NewTab("Mobs"):AddSection("Kill Mobs")
+    local vu439 = {
+        "Mutant",
+        "Sprinter",
+        "Buff",
+        "Vampire",
+        "ChefBoss & ElectricBoss",
+        "Hazmatzombie",
+        "Chef Mutant",
+        "FarmBoss",
+        "PlantBoss",
+        "HazMauler"
+    }
+    v438:AddDropdown("Kill Mob", "Select mob to kill him", vu439, vu439[1], function(p440)
+        vu439 = p440
+    end)
+    v438:AddToggle("Auto Kill Selected Mob", "Auto kill selected mob in map", false, function(pu441)
+        task.spawn(function()
+            Config.Mobs = pu441
+            while Config.Mobs do
+                if vu439 ~= "Mutant" then
+                    if vu439 ~= "Sprinter" then
+                        if vu439 ~= "Buff" then
+                            if vu439 ~= "Vampire" then
+                                if vu439 ~= "ChefBoss & ElectricBoss" then
+                                    if vu439 ~= "Hazmatzombie" then
+                                        if vu439 ~= "Chef Mutant" then
+                                            if vu439 ~= "FarmBoss" then
+                                                if vu439 ~= "PlantBoss" then
+                                                    if vu439 == "HazMauler" then
+                                                        local v442 = vu20
+                                                        local v443, v444, v445 = pairs(v442:GetDescendants())
+                                                        while true do
+                                                            local v446
+                                                            v445, v446 = v443(v444, v445)
+                                                            if v445 == nil then
+                                                                break
+                                                            end
+                                                            if v446.Name == "HazMauler" and v446:FindFirstChildWhichIsA("Humanoid") then
+                                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v446)
+                                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v446)
+                                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v446)
+                                                            end
+                                                        end
+                                                    end
+                                                else
+                                                    local v447 = vu20
+                                                    local v448, v449, v450 = pairs(v447:GetDescendants())
+                                                    while true do
+                                                        local v451
+                                                        v450, v451 = v448(v449, v450)
+                                                        if v450 == nil then
+                                                            break
+                                                        end
+                                                        if v451.Name == "PlantBoss" and v451:FindFirstChildWhichIsA("Humanoid") then
+                                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v451)
+                                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v451)
+                                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v451)
+                                                        end
+                                                    end
+                                                end
+                                            else
+                                                local v452 = vu20
+                                                local v453, v454, v455 = pairs(v452:GetDescendants())
+                                                while true do
+                                                    local v456
+                                                    v455, v456 = v453(v454, v455)
+                                                    if v455 == nil then
+                                                        break
+                                                    end
+                                                    if v456.Name == "FarmBoss" and v456:FindFirstChildWhichIsA("Humanoid") then
+                                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v456)
+                                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v456)
+                                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v456)
+                                                    end
+                                                end
+                                            end
+                                        else
+                                            local v457 = vu20
+                                            local v458, v459, v460 = pairs(v457:GetDescendants())
+                                            while true do
+                                                local v461
+                                                v460, v461 = v458(v459, v460)
+                                                if v460 == nil then
+                                                    break
+                                                end
+                                                if v461.Name == "Chef Mutant" and v461:FindFirstChildWhichIsA("Humanoid") then
+                                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v461)
+                                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v461)
+                                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v461)
+                                                end
+                                            end
+                                        end
+                                    else
+                                        local v462 = vu20
+                                        local v463, v464, v465 = pairs(v462:GetDescendants())
+                                        while true do
+                                            local v466
+                                            v465, v466 = v463(v464, v465)
+                                            if v465 == nil then
+                                                break
+                                            end
+                                            if v466.Name == "Hazmatzombie" and v466:FindFirstChildWhichIsA("Humanoid") then
+                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v466)
+                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v466)
+                                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v466)
+                                            end
+                                        end
+                                    end
+                                else
+                                    local v467 = vu20
+                                    local v468, v469, v470 = pairs(v467:GetDescendants())
+                                    while true do
+                                        local v471
+                                        v470, v471 = v468(v469, v470)
+                                        if v470 == nil then
+                                            break
+                                        end
+                                        if v471.Name == "ChefBoss" and v471:FindFirstChildWhichIsA("Humanoid") then
+                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v471)
+                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v471)
+                                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v471)
+                                        end
+                                    end
+                                end
+                            else
+                                local v472 = vu20
+                                local v473, v474, v475 = pairs(v472:GetDescendants())
+                                while true do
+                                    local v476
+                                    v475, v476 = v473(v474, v475)
+                                    if v475 == nil then
+                                        break
+                                    end
+                                    if v476.Name == "Vampire" or v476.Name == "vampire" and v476:FindFirstChildWhichIsA("Humanoid") then
+                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v476)
+                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v476)
+                                        vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v476)
+                                    end
+                                end
+                            end
+                        else
+                            local v477 = vu20
+                            local v478, v479, v480 = pairs(v477:GetDescendants())
+                            while true do
+                                local v481
+                                v480, v481 = v478(v479, v480)
+                                if v480 == nil then
+                                    break
+                                end
+                                if v481.Name == "buff" or v481.Name == "Buff" and v481:FindFirstChildWhichIsA("Humanoid") then
+                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v481)
+                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v481)
+                                    vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v481)
+                                end
+                            end
+                        end
+                    else
+                        local v482 = vu20
+                        local v483, v484, v485 = pairs(v482:GetDescendants())
+                        while true do
+                            local v486
+                            v485, v486 = v483(v484, v485)
+                            if v485 == nil then
+                                break
+                            end
+                            if v486.Name == "sprinter" or v486.Name == "Sprinter" and v486:FindFirstChildWhichIsA("Humanoid") then
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v486)
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v486)
+                                vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v486)
+                            end
+                        end
+                    end
+                else
+                    local v487 = vu20
+                    local v488, v489, v490 = pairs(v487:GetDescendants())
+                    while true do
+                        local v491
+                        v490, v491 = v488(v489, v490)
+                        if v490 == nil then
+                            break
+                        end
+                        if v491.Name == "mutant" or v491.Name == "Mutant" and v491:FindFirstChildWhichIsA("Humanoid") then
+                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v491)
+                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v491)
+                            vu19:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), v491)
+                        end
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end)
+    v438:AddToggle("Auto Kill All Mobs", "Auto kill all mobs in map", false, function(pu492)
+        task.spawn(function()
+            Config.Mobs = pu492
+            while Config.Mobs do
+                local v493 = vu20
+                local v494, v495, v496 = ipairs(v493:GetDescendants())
+                while true do
+                    local v497
+                    v496, v497 = v494(v495, v496)
+                    if v496 == nil then
+                        break
+                    end
+                    if v497:IsA("Part") and (v497.Name == "HumanoidRootPart" and not v497.Anchored) and (v497.Parent:FindFirstChildWhichIsA("Humanoid") and string.len(v497.Parent.Humanoid.DisplayName) == 0 and (v497.Parent:FindFirstChildWhichIsA("Script") and (v497.Parent:FindFirstChild("AI") and v497.Parent.Humanoid.Health > 0))) then
+                        game.ReplicatedStorage.teleport:FireServer(v497.Parent, Vector3.new(math.huge, - math.huge, math.huge))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+    end)
+    local v498 = v37:NewTab("Vehicle")
+    local v499 = v498:AddSection("Build")
+    local v500 = v498:AddSection("Vehicles")
+    v499:AddButton("Build Sedan", "Auto build sedan", function()
+        local v501, v502, v503 = pairs(game.Workspace.Sedan.Wheels:GetChildren())
+        while true do
+            local v504
+            v503, v504 = v501(v502, v503)
+            if v503 == nil then
+                break
+            end
+            local v505 = vu28("Wheel")
+            if v505 then
+                local v506 = {
+                    v505:FindFirstChildWhichIsA("Part") or (v505:FindFirstChildWhichIsA("MeshPart") or v505:FindFirstChildWhichIsA("UnionOperation")),
+                    v504,
+                    true,
+                    v504.CarPartSpace
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v506))
+            end
+        end
+        local v507 = vu28("Engine")
+        if v507 then
+            local v508 = {
+                v507:FindFirstChildWhichIsA("Part") or (v507:FindFirstChildWhichIsA("MeshPart") or v507:FindFirstChildWhichIsA("UnionOperation")),
+                game.Workspace.Sedan.Misc.details.other.Engine.Model.Object_43,
+                true,
+                game.Workspace.Sedan.Misc.details.other.Engine.Part.CarPartSpace
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v508))
+        end
+        local v509 = vu28("radiator")
+        if v509 then
+            local v510 = {
+                v509:FindFirstChildWhichIsA("Part") or v509:FindFirstChildWhichIsA("MeshPart") or radiator:FindFirstChildWhichIsA("UnionOperation"),
+                game.Workspace.Sedan.Misc.details.other.radiator.Model.Object_59,
+                true,
+                game.Workspace.Sedan.Misc.details.other.radiator.Part.CarPartSpace
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v510))
+        end
+        local v511 = vu28("leftlight")
+        if v511 then
+            local v512 = {
+                v511:FindFirstChildWhichIsA("Part") or (v511:FindFirstChildWhichIsA("MeshPart") or v511:FindFirstChildWhichIsA("UnionOperation")),
+                game.Workspace.Sedan.Misc.details.other.leftlight.Model["kk.025"],
+                true,
+                game.Workspace.Sedan.Misc.details.other.leftlight.Part.CarPartSpace
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v512))
+        end
+        local v513 = {
+            game.Workspace.rightlight["kk.097"],
+            game.Workspace.Sedan.Misc.details.other.rightlight.Model["kk.057"],
+            true,
+            game.Workspace.Sedan.Misc.details.other.rightlight.Part.CarPartSpace
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v513))
+        local v514 = {
+            game.Workspace.grill.Object_922,
+            game.Workspace.Sedan.Misc.details.other.grill.Model.Object_922,
+            true,
+            game.Workspace.Sedan.Misc.details.other.grill.Part.CarPartSpace
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v514))
+        local v515 = vu28("hood")
+        if v515 then
+            local v516 = {
+                v515:FindFirstChildWhichIsA("Part") or (v515:FindFirstChildWhichIsA("MeshPart") or v515:FindFirstChildWhichIsA("UnionOperation")),
+                game.Workspace.Sedan.Misc.details.openable.hood.Model.Union,
+                true,
+                game.Workspace.Sedan.Misc.details.openable.hood.Part.dragweld
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v516))
+        end
+        local v517 = vu28("back")
+        if v517 then
+            local v518 = {
+                v517:FindFirstChildWhichIsA("Part") or (v517:FindFirstChildWhichIsA("MeshPart") or v517:FindFirstChildWhichIsA("UnionOperation")),
+                game.Workspace.Sedan.Misc.details.openable.back.Model.Union,
+                true,
+                game.Workspace.Sedan.Misc.details.openable.back.Part.dragweld
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v518))
+        end
+    end)
+    v499:AddButton("Build Van", "Auto build van", function()
+        local v519, v520, v521 = pairs(game.Workspace.Van.Wheels:GetChildren())
+        while true do
+            local v522
+            v521, v522 = v519(v520, v521)
+            if v521 == nil then
+                break
+            end
+            local v523 = vu28("Wheel")
+            if v523 then
+                local v524 = {
+                    v523:FindFirstChildWhichIsA("Part") or (v523:FindFirstChildWhichIsA("MeshPart") or v523:FindFirstChildWhichIsA("UnionOperation")),
+                    v522,
+                    true,
+                    v522.CarPartSpace
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v524))
+            end
+        end
+        local v525 = {
+            game.Workspace.enginehood.Union,
+            game.Workspace.Van.Misc.details.openable.enginehood.Model.Union,
+            true,
+            game.Workspace.Van.Misc.details.openable.enginehood.Part.dragweld
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v525))
+        local v526 = vu28("hood2")
+        if v526 then
+            local v527 = {
+                v526:FindFirstChildWhichIsA("Part") or v526:FindFirstChildWhichIsA("MeshPart") or (v526:FindFirstChildWhichIsA("UnionOperation") or v526:FindFirstChildWhichIsA("paint")),
+                game.Workspace.Van.Misc.details.openable.hood2.Model.Union,
+                true,
+                game.Workspace.Van.Misc.details.openable.hood2.Part.dragweld
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v527))
+        end
+        local v528 = {
+            game.Workspace.grill.Object_922,
+            game.Workspace.Van.Misc.details.other.grill.Model.Object_922,
+            true,
+            game.Workspace.Van.Misc.details.other.grill.Part.CarPartSpace
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v528))
+        local v529 = vu28("Engine")
+        if v529 then
+            local v530 = {
+                v529:FindFirstChildWhichIsA("Part") or (v529:FindFirstChildWhichIsA("MeshPart") or v529:FindFirstChildWhichIsA("UnionOperation")),
+                game.Workspace.Van.Misc.details.other.Engine.Model.Object_43,
+                true,
+                game.Workspace.Van.Misc.details.other.Engine.Part.CarPartSpace
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v530))
+        end
+        local v531 = vu28("radiator")
+        if v531 then
+            local v532 = {
+                v531:FindFirstChildWhichIsA("Part") or v531:FindFirstChildWhichIsA("MeshPart") or radiator:FindFirstChildWhichIsA("UnionOperation"),
+                game.Workspace.Van.Misc.details.other.radiator.Model.Object_59,
+                true,
+                game.Workspace.Van.Misc.details.other.radiator.Part.CarPartSpace
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v532))
+        end
+        local v533 = {
+            game.Workspace.RR2.Part,
+            game.Workspace.Van.Misc.details.doors.RR2.Model.Union,
+            true,
+            game.Workspace.Van.Misc.details.doors.RR2.Part.dragweld
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v533))
+        local v534 = {
+            game.Workspace.back2.Part,
+            game.Workspace.Van.Misc.details.openable.back2.Model.Union,
+            true,
+            game.Workspace.Van.Misc.details.openable.back2.Part.dragweld
+        }
+        game:GetService("ReplicatedStorage"):WaitForChild("place"):InvokeServer(unpack(v534))
+    end)
+    local v535 = vu20
+    local v536, v537, v538 = ipairs(v535:GetDescendants())
+    local vu539 = {}
+    local vu540 = {}
+    while true do
+        local v541
+        v538, v541 = v536(v537, v538)
+        if v538 == nil then
+            break
+        end
+        if v541:IsA("RemoteEvent") and v541.Name == "connection" then
+            table.insert(vu539, v541.Parent.Name)
+            vu540[v541.Parent.Name] = v541.Parent
+        end
+    end
+    v500:AddDropdown("Vehicles", "All vehicles in map", vu539, vu539[1], function(p542)
+        vu539 = vu540[p542]
+    end)
+    v500:AddButton("Goto Selected Vehicle", "Select vehicle", function()
+        if vu539 then
+            vu10.Character:PivotTo(vu539:GetPivot() * CFrame.new(0, 10, 0))
+        end
+    end)
+    v500:AddButton("Bring Selected Vehicle", "Select vehicle", function()
+        if vu539 then
+            vu14(vu539, vu10.Character:GetPivot() * CFrame.new(0, 10, - 30))
+        end
+    end)
+    v500:AddToggle("GAS In Selected Vehicle", "Automatic fuel gas in selected vehicle", false, function(pu543)
+        task.spawn(function()
+            Config.Vehicle = pu543
+            while Config.Vehicle do
+                if vu539 then
+                    vu19:WaitForChild("fill"):FireServer(vu539:WaitForChild("Misc"):WaitForChild("tank"):WaitForChild("main"):WaitForChild("tank"), vu19.Assets.Liquids.GasCan.main.tank)
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v500:AddToggle("DIESEL In Selected Vehicle", "Automatic fuel diesel in selected vehicle", false, function(pu544)
+        task.spawn(function()
+            Config.Vehicle = pu544
+            while Config.Vehicle do
+                if vu539 then
+                    vu19:WaitForChild("fill"):FireServer(vu539:WaitForChild("Misc"):WaitForChild("tank"):WaitForChild("main"):WaitForChild("tank"), vu19.Assets.Liquids.DieselCan.main.tank)
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v500:AddToggle("OIL In Engine", "Automatic fuel oil in engines", false, function(pu545)
+        task.spawn(function()
+            Config.Vehicle = pu545
+            while Config.Vehicle do
+                local v546 = vu20
+                local v547, v548, v549 = pairs(v546:GetChildren())
+                while true do
+                    local v550
+                    v549, v550 = v547(v548, v549)
+                    if v549 == nil then
+                        break
+                    end
+                    if v550.Name == "Engine" then
+                        vu19:WaitForChild("fill"):FireServer(v550:WaitForChild("tank"):WaitForChild("main"):WaitForChild("tank"), game.ReplicatedStorage.Assets.Liquids.OilCan.main.tank)
+                    end
+                end
+                local v551 = vu20
+                local v552, v553, v554 = pairs(v551:GetChildren())
+                while true do
+                    local v555
+                    v554, v555 = v552(v553, v554)
+                    if v554 == nil then
+                        break
+                    end
+                    if v555:IsA("Model") then
+                        local v556, v557, v558 = pairs(v555:GetChildren())
+                        while true do
+                            local v559
+                            v558, v559 = v556(v557, v558)
+                            if v558 == nil then
+                                break
+                            end
+                            if v559.Name == "Engine" then
+                                vu19:WaitForChild("fill"):FireServer(v559:WaitForChild("tank"):WaitForChild("main"):WaitForChild("tank"), game.ReplicatedStorage.Assets.Liquids.OilCan.main.tank)
+                            end
+                        end
+                    end
+                end
+                local v560 = vu20
+                local v561, v562, v563 = pairs(v560:GetChildren())
+                while true do
+                    local v564
+                    v563, v564 = v561(v562, v563)
+                    if v563 == nil then
+                        break
+                    end
+                    if v564:IsA("Model") then
+                        local v565, v566, v567 = pairs(v564:GetChildren())
+                        while true do
+                            local v568
+                            v567, v568 = v565(v566, v567)
+                            if v567 == nil then
+                                break
+                            end
+                            if v568:IsA("Model") then
+                                local v569, v570, v571 = pairs(v568:GetChildren())
+                                while true do
+                                    local v572
+                                    v571, v572 = v569(v570, v571)
+                                    if v571 == nil then
+                                        break
+                                    end
+                                    if v572.Name == "Engine" then
+                                        vu19:WaitForChild("fill"):FireServer(v572:WaitForChild("tank"):WaitForChild("main"):WaitForChild("tank"), game.ReplicatedStorage.Assets.Liquids.OilCan.main.tank)
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v500:AddToggle("WATER In Radiator", "Automatic fuel water in radiator", false, function(pu573)
+        task.spawn(function()
+            Config.Vehicle = pu573
+            while Config.Vehicle do
+                local v574 = vu20
+                local v575, v576, v577 = pairs(v574:GetChildren())
+                while true do
+                    local v578
+                    v577, v578 = v575(v576, v577)
+                    if v577 == nil then
+                        break
+                    end
+                    if v578.Name == "Radiator" or v578.Name == "radiator" then
+                        vu19:WaitForChild("fill"):FireServer(v578:WaitForChild("water"):WaitForChild("main"):WaitForChild("tank"), game.ReplicatedStorage.Assets.Liquids.WaterCan.main.tank)
+                    end
+                end
+                local v579 = vu20
+                local v580, v581, v582 = pairs(v579:GetChildren())
+                while true do
+                    local v583
+                    v582, v583 = v580(v581, v582)
+                    if v582 == nil then
+                        break
+                    end
+                    if v583:IsA("Model") then
+                        local v584, v585, v586 = pairs(v583:GetChildren())
+                        while true do
+                            local v587
+                            v586, v587 = v584(v585, v586)
+                            if v586 == nil then
+                                break
+                            end
+                            if v587.Name == "Radiator" or v587.Name == "radiator" then
+                                vu19:WaitForChild("fill"):FireServer(v587:WaitForChild("water"):WaitForChild("main"):WaitForChild("tank"), game.ReplicatedStorage.Assets.Liquids.WaterCan.main.tank)
+                            end
+                        end
+                    end
+                end
+                local v588 = vu20
+                local v589, v590, v591 = pairs(v588:GetChildren())
+                while true do
+                    local v592
+                    v591, v592 = v589(v590, v591)
+                    if v591 == nil then
+                        break
+                    end
+                    if v592:IsA("Model") then
+                        local v593, v594, v595 = pairs(v592:GetChildren())
+                        while true do
+                            local v596
+                            v595, v596 = v593(v594, v595)
+                            if v595 == nil then
+                                break
+                            end
+                            if v596:IsA("Model") then
+                                local v597, v598, v599 = pairs(v596:GetChildren())
+                                while true do
+                                    local v600
+                                    v599, v600 = v597(v598, v599)
+                                    if v599 == nil then
+                                        break
+                                    end
+                                    if v600.Name == "Radiator" or v600.Name == "radiator" then
+                                        vu19:WaitForChild("fill"):FireServer(v600:WaitForChild("water"):WaitForChild("main"):WaitForChild("tank"), game.Assets.ReplicatedStorage.Liquids.WaterCan.main.tank)
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v500:AddToggle("Inf Fuel (start the vehicle so it works) ", "Start vehicle first", false, function(pu601)
+        task.spawn(function()
+            Config.Vehicle = pu601
+            while Config.Vehicle do
+                if vu539 then
+                    vu539.connection:FireServer(vu539.values.rpm, - math.huge)
+                end
+                task.wait(0.1)
+            end
+        end)
+    end)
+    if not string.find(identifyexecutor(), "Solara") then
+        v500:AddToggle("Flip Vehicle", "Automatic flip vehicle if your executor support this", false, function(p602)
+            if p602 then
+                local v603, v604, v605 = ipairs(game.Workspace:GetDescendants())
+                while true do
+                    local v606
+                    v605, v606 = v603(v604, v605)
+                    if v605 == nil then
+                        break
+                    end
+                    if v606:IsA("ModuleScript") and v606.Name == "A-Chassis Tune" then
+                        require(v606).AutoFlip = true
+                    end
+                end
+            elseif not p602 then
+                local v607, v608, v609 = ipairs(game.Workspace:GetDescendants())
+                while true do
+                    local v610
+                    v609, v610 = v607(v608, v609)
+                    if v609 == nil then
+                        break
+                    end
+                    if v610:IsA("ModuleScript") and v610.Name == "A-Chassis Tune" then
+                        require(v610).AutoFlip = false
+                    end
+                end
+                local v611, v612, v613 = ipairs(game.Workspace:GetDescendants())
+                while true do
+                    local v614
+                    v613, v614 = v611(v612, v613)
+                    if v613 == nil then
+                        break
+                    end
+                    if v614:IsA("ModuleScript") and v614.Name == "A-Chassis Tune" then
+                        require(v614).AutoFlip = false
+                    end
+                end
+            end
+        end)
+    end
+    v500:AddButton("Remove Speed Limit", "You can drive without a car speed limit", function()
+        local v615, v616, v617 = ipairs(game.Workspace:GetChildren())
+        while true do
+            local v618
+            v617, v618 = v615(v616, v617)
+            if v617 == nil then
+                break
+            end
+            if v618.Name == "Engine" and v618:FindFirstChild("maxgear") then
+                v618.maxgear.Value = math.huge
+            end
+        end
+        local v619, v620, v621 = ipairs(game.Workspace:GetChildren())
+        while true do
+            local v622
+            v621, v622 = v619(v620, v621)
+            if v621 == nil then
+                break
+            end
+            if v622:IsA("Model") then
+                local v623, v624, v625 = ipairs(v622:GetChildren())
+                while true do
+                    local v626
+                    v625, v626 = v623(v624, v625)
+                    if v625 == nil then
+                        break
+                    end
+                    if v626.Name == "Engine" and v626:FindFirstChild("maxgear") then
+                        v626.maxgear.Value = math.huge
+                    end
+                end
+            end
+        end
+        if game.Workspace:FindFirstChild("BuildingItemStorage") then
+            local v627, v628, v629 = ipairs(game.Workspace.BuildingItemStorage:GetChildren())
+            while true do
+                local v630
+                v629, v630 = v627(v628, v629)
+                if v629 == nil then
+                    break
+                end
+                if v630.Name == "Engine" and v630:FindFirstChild("maxgear") then
+                    v630.maxgear.Value = math.huge
+                end
+            end
+            local v631, v632, v633 = ipairs(game.Workspace.BuildingItemStorage:GetChildren())
+            while true do
+                local v634
+                v633, v634 = v631(v632, v633)
+                if v633 == nil then
+                    break
+                end
+                if v634:IsA("Model") then
+                    local v635, v636, v637 = ipairs(v634:GetChildren())
+                    while true do
+                        local v638
+                        v637, v638 = v635(v636, v637)
+                        if v637 == nil then
+                            break
+                        end
+                        if v638.Name == "Engine" and v638:FindFirstChild("maxgear") then
+                            v638.maxgear.Value = math.huge
+                        end
+                    end
+                end
+            end
+        end
+    end)
+    v500:AddTextBox("Vehicle Speed", "Set Vehicle Speed", "Number", "", function(p639)
+        local v640 = tonumber(p639)
+        if type(v640) ~= "number" then
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Failed to found number"
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 3,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        else
+            local v641, v642, v643 = ipairs(game.Workspace:GetChildren())
+            while true do
+                local v644
+                v643, v644 = v641(v642, v643)
+                if v643 == nil then
+                    break
+                end
+                if v644.Name == "Engine" then
+                    v644.hp.Value = p639
+                end
+            end
+            local v645, v646, v647 = ipairs(game.Workspace:GetChildren())
+            while true do
+                local v648
+                v647, v648 = v645(v646, v647)
+                if v647 == nil then
+                    break
+                end
+                if v648:IsA("Model") then
+                    local v649, v650, v651 = ipairs(v648:GetChildren())
+                    while true do
+                        local v652
+                        v651, v652 = v649(v650, v651)
+                        if v651 == nil then
+                            break
+                        end
+                        if v652.Name == "Engine" then
+                            v652.hp.Value = p639
+                        end
+                    end
+                end
+            end
+            if game.Workspace:FindFirstChild("BuildingItemStorage") then
+                local v653, v654, v655 = ipairs(game.Workspace.BuildingItemStorage:GetChildren())
+                while true do
+                    local v656
+                    v655, v656 = v653(v654, v655)
+                    if v655 == nil then
+                        break
+                    end
+                    if v656.Name == "Engine" then
+                        v656.hp.Value = p639
+                    end
+                end
+                local v657, v658, v659 = ipairs(game.Workspace.BuildingItemStorage:GetChildren())
+                while true do
+                    local v660
+                    v659, v660 = v657(v658, v659)
+                    if v659 == nil then
+                        break
+                    end
+                    if v660:IsA("Model") then
+                        local v661, v662, v663 = ipairs(v660:GetChildren())
+                        while true do
+                            local v664
+                            v663, v664 = v661(v662, v663)
+                            if v663 == nil then
+                                break
+                            end
+                            if v664.Name == "Engine" then
+                                v664.hp.Value = p639
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end)
+    local v665 = v37:NewTab("Map"):AddSection("Weather")
+    v665:AddToggle("Set Time Day", "Day time", false, function(pu666)
+        task.spawn(function()
+            Config.Locations = pu666
+            while Config.Locations do
+                vu11.ClockTime = 14
+                task.wait()
+            end
+        end)
+    end)
+    v665:AddToggle("Set Time Night", "Night time", false, function(pu667)
+        task.spawn(function()
+            Config.Locations = pu667
+            while Config.Locations do
+                vu11.ClockTime = 0
+                task.wait()
+            end
+        end)
+    end)
+    v665:AddToggle("Fullbright", "You can see all", false, function(pu668)
+        task.spawn(function()
+            Config.Locations = pu668
+            while Config.Locations do
+                vu11.Brightness = 2
+                vu11.ClockTime = 14
+                vu11.FogEnd = 10000
+                vu11.GlobalShadows = false
+                vu11.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+                task.wait()
+            end
+        end)
+    end)
+    v665:AddButton("Nofog", "Delete atmosphere", function()
+        vu11.FogEnd = 10000
+        local v669 = vu11
+        local v670, v671, v672 = pairs(v669:GetDescendants())
+        while true do
+            local v673
+            v672, v673 = v670(v671, v672)
+            if v672 == nil then
+                break
+            end
+            if v673:IsA("Atmosphere") then
+                v673:Destroy()
+            end
+        end
+    end)
+    local v674 = v37:NewTab("Weapons"):AddSection("Main")
+    v674:AddToggle("Inf Ammo", "Inf ammo in weapons", false, function(p675)
+        if p675 then
+            local v676, v677, v678 = pairs(game.Workspace:GetDescendants())
+            while true do
+                local v679
+                v678, v679 = v676(v677, v678)
+                if v678 == nil then
+                    break
+                end
+                if v679:GetAttribute("CurrentMagSize") then
+                    v679:SetAttribute("CurrentMagSize", 0 / 0)
+                    v679:SetAttribute("MagSize", 0 / 0)
+                    v679:SetAttribute("MaxBulletsAmount", 0 / 0)
+                end
+            end
+        else
+            for _ = 1, 10, 10 do
+                local v680, v681, v682 = pairs(game.Workspace:GetDescendants())
+                while true do
+                    local v683
+                    v682, v683 = v680(v681, v682)
+                    if v682 == nil then
+                        break
+                    end
+                    if v683:GetAttribute("CurrentMagSize") then
+                        v683:SetAttribute("CurrentMagSize", 10)
+                        v683:SetAttribute("MagSize", 30)
+                        v683:SetAttribute("MaxBulletsAmount", 90)
+                    end
+                end
+            end
+        end
+    end)
+    v674:AddButton("No Firerate", "Solara not support", function()
+        local v684 = next
+        local v685, v686 = getgc(true)
+        while true do
+            local v687
+            v686, v687 = v684(v685, v686)
+            if v686 == nil then
+                break
+            end
+            if type(v687) == "table" and rawget(v687, "BulletDamage") then
+                v687.FireMode = "Auto"
+                v687.FireRate = 0
+            end
+        end
+    end)
+    v674:AddToggle("No Reload", "weapons without reload", false, function(p688)
+        if p688 then
+            local v689 = next
+            local v690, v691 = getgc(true)
+            while true do
+                local v692
+                v691, v692 = v689(v690, v691)
+                if v691 == nil then
+                    break
+                end
+                if type(v692) == "table" and rawget(v692, "BulletDamage") then
+                    v692.ReloadTime = 0
+                end
+            end
+        else
+            for _ = 1, 10, 10 do
+                local v693 = next
+                local v694, v695 = getgc(true)
+                while true do
+                    local v696
+                    v695, v696 = v693(v694, v695)
+                    if v695 == nil then
+                        break
+                    end
+                    if type(v696) == "table" and rawget(v696, "BulletDamage") then
+                        v696.ReloadTime = 1
+                    end
+                end
+            end
+        end
+    end)
+    v674:AddButton("No Recoil", "Shoot without recoil", function()
+        local v697 = next
+        local v698, v699 = getgc(true)
+        while true do
+            local v700
+            v699, v700 = v697(v698, v699)
+            if v699 == nil then
+                break
+            end
+            if type(v700) == "table" and rawget(v700, "BulletDamage") then
+                v700.MinRecoilX = 0
+                v700.MinRecoilY = 0
+                v700.MinRecoilZ = 0
+                v700.MaxRecoilX = 0
+                v700.MaxRecoilY = 0
+                v700.MaxRecoilZ = 0
+            end
+        end
+    end)
+    local v701 = v37:NewTab("Player")
+    local v702 = v701:AddSection("Player")
+    local v703 = v701:AddSection("Misc")
+    local vu704 = 1
+    local vu705 = game:GetService("UserInputService")
+    v702:AddToggle("Fly", "...", false, function(pu706)
+        task.spawn(function()
+            Config.Locations = pu706
+            while Config.Locations do
+                if vu10.Character and (vu10.Character:FindFirstChild("HumanoidRootPart") and vu10.Character.Humanoid.Sit == false) then
+                    vu10.Character.Humanoid:ChangeState("Freefall")
+                    if vu705:IsKeyDown(Enum.KeyCode.Space) then
+                        vu10.Character:PivotTo(vu10.Character:GetPivot() + Vector3.new(0, 0.25, 0))
+                    end
+                    if vu705:IsKeyDown(Enum.KeyCode.LeftShift) then
+                        vu10.Character:PivotTo(vu10.Character:GetPivot() - Vector3.new(0, 0.25, 0))
+                    end
+                    vu10.Character:PivotTo(vu10.Character:GetPivot() + vu10.Character.Humanoid.MoveDirection / 40 * vu704)
+                    vu10.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v702:AddTextBox("Fly Speed", "Change Fly Speed", "Number", "", function(p707)
+        local v708 = tonumber(p707)
+        if type(v708) ~= "number" then
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Failed to found number"
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 3,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        else
+            vu704 = tonumber(p707)
+        end
+    end)
+    v702:AddTextBox("Player Speed", "Change Character Speed", "Number", "", function(p709)
+        local v710 = tonumber(p709)
+        if type(v710) ~= "number" then
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Failed to found number"
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 3,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        else
+            vu10.Character.Humanoid.WalkSpeed = p709
+        end
+    end)
+    v702:AddTextBox("Field Of View", "Change Field Of View", "Number", "", function(p711)
+        local v712 = tonumber(p711)
+        if type(v712) ~= "number" then
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Failed to found number"
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 3,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        else
+            vu20.Camera.FieldOfView = p711
+        end
+    end)
+    v702:AddTextBox("Gravity", "Change Gravity", "Number", "", function(p713)
+        local v714 = tonumber(p713)
+        if type(v714) ~= "number" then
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Failed to found number"
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 3,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        else
+            vu20.Gravity = p713
+        end
+    end)
+    v703:AddButton("Inf Jump", "You can jump endlessly", function()
+        loadstring(game:HttpGet("https://pastefy.app/2ZKdOO9N/raw", true))()
+    end)
+    v703:AddButton("Inf Stamina", "You now have inf stamina", function()
+        loadstring(game:HttpGet("https://pastefy.app/uqDKxjaZ/raw", true))()
+    end)
+    v703:AddButton("Godmode", "You now have endless health", function()
+        loadstring(game:HttpGet("https://pastefy.app/6H6jKOWp/raw", true))()
+    end)
+    v703:AddButton("Get 8x8 BackPack", "You can get a backpack if you don\'t want to find for it", function()
+        local v715 = vu19
+        local v716, v717, v718 = pairs(v715:GetDescendants())
+        while true do
+            local v719
+            v718, v719 = v716(v717, v718)
+            if v718 == nil then
+                break
+            end
+            if v719.Name == "Backpack_8" then
+                vu19.Network.BACKPACK_CREATE:InvokeServer(v719)
+            end
+        end
+    end)
+    v703:AddButton("Get 6x6 BackPack", "You can get a backpack if you don\'t want to find for it", function()
+        local v720 = vu19
+        local v721, v722, v723 = pairs(v720:GetDescendants())
+        while true do
+            local v724
+            v723, v724 = v721(v722, v723)
+            if v723 == nil then
+                break
+            end
+            if v724.Name == "Backpack_6" then
+                vu19.Network.BACKPACK_CREATE:InvokeServer(v724)
+            end
+        end
+    end)
+    v703:AddButton("Get All Meters Badges", "Getting all meters badges in game", function()
+        game.Players.LocalPlayer.Character:PivotTo(CFrame.new(- 41953.453125, 539.2250366210938, - 592186.0625))
+        task.wait(1)
+        game.Players.LocalPlayer.Character:PivotTo(CFrame.new(105.6954116821289, 10.488120079040527, 8275.2236328125))
+        task.wait(1.1)
+    end)
+    local v725 = v37:NewTab("Troll"):AddSection("Players")
+    v725:AddDropdown("Player List", "Here all players in game", vu21, vu21[1], function(p726)
+        vu15 = tostring(p726)
+    end)
+    v725:AddButton("Bring Selected Player", "You can bring selected player to you", function()
+        local v727 = game.Players:FindFirstChild(vu15)
+        if v727 then
+            vu14(v727.Character, vu10.Character:GetPivot() + vu10.Character.HumanoidRootPart.CFrame.LookVector * 5)
+        else
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Player not found."
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 5,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        end
+    end)
+    v725:AddButton("Bring Mutant To Selected Player", "You can bring mutant to selected player", function()
+        local v728 = game.Players:FindFirstChild(vu15)
+        if v728 then
+            local v729 = vu20
+            local v730, v731, v732 = ipairs(v729:GetDescendants())
+            local v733 = false
+            while true do
+                local v734
+                v732, v734 = v730(v731, v732)
+                if v732 == nil then
+                    break
+                end
+                if v734:IsA("Part") and (v734.Name == "HumanoidRootPart" and not v734.Anchored) and (v734.Parent:FindFirstChildWhichIsA("Humanoid") and (string.len(v734.Parent.Humanoid.DisplayName) == 0 and v734.Parent.Humanoid.Health > 0) and v734.Parent:FindFirstChildWhichIsA("Humanoid")) then
+                    vu14(v734.Parent, v728.Character:GetPivot())
+                    v733 = true
+                end
+            end
+            if v733 then
+                vu36:Notify({
+                    Title = "Success!",
+                    Description = "Mutant bringed to selected player."
+                }, {
+                    OutlineColor = Color3.fromRGB(0, 0, 255),
+                    Time = 5,
+                    Type = "image"
+                }, {
+                    Image = "http://www.roblox.com/asset/?id=17860774372",
+                    ImageColor = Color3.fromRGB(255, 255, 255)
+                })
+            else
+                vu36:Notify({
+                    Title = "Error...",
+                    Description = "Mutant not found in map."
+                }, {
+                    OutlineColor = Color3.fromRGB(0, 0, 255),
+                    Time = 5,
+                    Type = "image"
+                }, {
+                    Image = "http://www.roblox.com/asset/?id=17860774372",
+                    ImageColor = Color3.fromRGB(255, 255, 255)
+                })
+            end
+        else
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Player not found."
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 5,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        end
+    end)
+    v725:AddButton("Kill Selected Player", "You can kill to selected player", function()
+        local v735 = game.Players:FindFirstChild(vu15)
+        if v735 then
+            vu19:WaitForChild("drag"):InvokeServer(v735.Character.HumanoidRootPart, true)
+            task.wait(0.5)
+            v735.Character.Humanoid.Health = 0
+            task.wait(0.3)
+            vu19:WaitForChild("drag"):InvokeServer(v735.Character.HumanoidRootPart, false, 0, Vector3.new(0, 0, 0))
+        else
+            vu36:Notify({
+                Title = "Error...",
+                Description = "Player not found."
+            }, {
+                OutlineColor = Color3.fromRGB(0, 0, 255),
+                Time = 5,
+                Type = "image"
+            }, {
+                Image = "http://www.roblox.com/asset/?id=17860774372",
+                ImageColor = Color3.fromRGB(255, 255, 255)
+            })
+        end
+    end)
+    v725:AddButton("Kill All", "You can kill all players", function()
+        local v736, v737, v738 = pairs(game.Players:GetChildren())
+        while true do
+            local v739
+            v738, v739 = v736(v737, v738)
+            if v738 == nil then
+                break
+            end
+            if v739 ~= vu10 and v739.Character and v739.Character:FindFirstChild("HumanoidRootPart") then
+                vu19:WaitForChild("drag"):InvokeServer(v739.Character.HumanoidRootPart, true)
+                task.wait()
+                v739.Character.Humanoid.Health = 0
+                task.wait()
+                vu19:WaitForChild("drag"):InvokeServer(v739.Character.HumanoidRootPart, false, 0, Vector3.new(0, 0, 0))
+            end
+        end
+    end)
+    v725:AddButton("Bring All", "You can bring all players to you", function()
+        local v740, v741, v742 = pairs(game.Players:GetChildren())
+        while true do
+            local v743
+            v742, v743 = v740(v741, v742)
+            if v742 == nil then
+                break
+            end
+            if v743 ~= vu10 and v743.Character then
+                vu14(v743.Character, vu10.Character:GetPivot() + vu10.Character.HumanoidRootPart.CFrame.LookVector * 5)
+            end
+        end
+    end)
+    v725:AddToggle("Sound Spammer | Loud", "This button make loud sound", false, function(pu744)
+        task.spawn(function()
+            Config.Troll = pu744
+            while Config.Troll do
+                local v745 = game.SoundService.crash
+                game.ReplicatedStorage.playsound:FireServer(v745, 10)
+                task.wait(0.05)
+            end
+        end)
+    end)
+    local v746 = v37:NewTab("Tools"):AddSection("Tools")
+    v746:AddButton("Telekinesis Gun", "You can grab unnachored parts", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Telekinesis", true))()
+    end)
+    v746:AddButton("Teleport Tool", "You can teleport where do you click", function()
+        loadstring(game:HttpGet("https://pastefy.app/spn8O2kz/raw", true))()
+    end)
+    v746:AddButton("Damage Tool", "You can damage HumanoidRootPart", function()
+        local v747 = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+        v747.Name = "Damage Tool"
+        v747.RequiresHandle = false
+        v747.Activated:Connect(function()
+            if game.Players.LocalPlayer:GetMouse().Target and game.Players.LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model") then
+                for _ = 1, 30 do
+                    game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Tools.Weapons:FindFirstChild("Pistol"), game.Players.LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model"))
+                end
+            end
+        end)
+    end)
+    v746:AddButton("Delete Tool", "You can now delete map part where do you click", function()
+        local v748 = Instance.new("Tool", vu10.Backpack)
+        v748.Name = "Delete Tool"
+        v748.RequiresHandle = false
+        v748.Activated:Connect(function()
+            if vu10:GetMouse().Target and vu10:GetMouse().Target:FindFirstAncestorOfClass("Model") then
+                vu19.teleport:FireServer(vu10:GetMouse().Target:FindFirstAncestorOfClass("Model"), Vector3.new(math.huge, math.huge, math.huge))
+            end
+        end)
+    end)
+    v746:AddToggle("Auto Use Tools in Inventory", "Automatic using tool in inventory", false, function(pu749)
+        task.spawn(function()
+            Config.Troll = pu749
+            while Config.Troll do
+                local v750 = vu10.Backpack:FindFirstChildWhichIsA("Tool")
+                if not vu10.Character:FindFirstChildWhichIsA("Tool") then
+                    vu10.Character:FindFirstChildWhichIsA("Humanoid"):EquipTool(v750)
+                end
+                if vu10.Character:FindFirstChildWhichIsA("Tool") then
+                    vu10.Character:FindFirstChildWhichIsA("Tool"):Activate()
+                end
+                task.wait()
+            end
+        end)
+    end)
+    v746:AddButton("Equip All Tools", "Equip all tools in inventory", function()
+        local v751, v752, v753 = pairs(game.Players.LocalPlayer.Backpack:GetChildren())
+        while true do
+            local v754
+            v753, v754 = v751(v752, v753)
+            if v753 == nil then
+                break
+            end
+            if v754:IsA("Tool") then
+                v754.Parent = game.Players.LocalPlayer.Character
+            end
+        end
+    end)
+    local v755 = v38:AddSection("          The Plains Version Loaded In " .. string.format("%s seconds.", string.format("%.2f", tostring(tick() - vu6))))
+    pcall(function()
+    end)
+    v755:AddButton("Join https://discord.gg/trSwdwm6Hp for newest Updates", "https://discord.gg/trSwdwm6Hp", function()
+        if setclipboard then
+            setclipboard("https://discord.gg/trSwdwm6Hp")
+        end
+    end)
+    v755:AddButton("1.1.4 Version:", "???", function()
+    end)
+    v755:AddButton("Added: Auto Complete New Quest", "???", function()
+    end)
+    v755:AddButton("Deleted: Lunar Event", "???", function()
+    end)
+    vu36:Notify({
+        Title = "Connect Hub",
+        Description = "Script Succesfully Loaded."
+    }, {
+        OutlineColor = Color3.fromRGB(0, 0, 255),
+        Time = 3,
+        Type = "image"
+    }, {
+        Image = "http://www.roblox.com/asset/?id=17860774372",
+        ImageColor = Color3.fromRGB(255, 255, 255)
+    })
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Rspy", true))()
+end)
+local function vu769(p756)
+    local v757, v758, v759 = ipairs(game:GetService("CoreGui"):GetChildren())
+    while true do
+        local v760
+        v759, v760 = v757(v758, v759)
+        if v759 == nil then
+            break
+        end
+        if v760.Name == "Fluxus" then
+            local v761, v762, v763 = ipairs(v760:GetDescendants())
+            while true do
+                local v764
+                v763, v764 = v761(v762, v763)
+                if v763 == nil then
+                    break
+                end
+                if v764:IsA("Frame") then
+                    local v765, v766, v767 = ipairs(v764:GetDescendants())
+                    while true do
+                        local v768
+                        v767, v768 = v765(v766, v767)
+                        if v767 == nil then
+                            break
+                        end
+                        if v768:IsA("TextLabel") and string.find(v768.Text, p756) then
+                            return v768
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
+local vu770 = game:GetService("RunService").RenderStepped
+task.spawn(function()
+    vu770:Connect(function()
+        local v771 = vu769("Connect Hub")
+        if v771 then
+            local v772 = vu20
+            v771.Text = string.format("The Plains v1.1.4 | Connect Hub / %s / %i ms / %i FPS", DateTime.now():FormatLocalTime("LTS", "de-DE"), math.round(game.Players.LocalPlayer:GetNetworkPing() * 1000), tostring(v772:GetRealPhysicsFPS()))
+        end
+    end)
+end)

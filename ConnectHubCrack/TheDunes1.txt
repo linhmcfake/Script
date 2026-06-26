@@ -1,0 +1,236 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local vu1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local v2, v3, v4 = pairs(game:GetService("CoreGui"):GetChildren())
+while true do
+    local v5, v6 = v2(v3, v4)
+    if v5 == nil then
+        break
+    end
+    v4 = v5
+    if v6.Name == "Fluxus" then
+        v6:Destroy()
+    end
+end
+getgenv().Config = {
+    Sphynx = false
+}
+local vu7 = tick()
+local v8 = game:GetService("Players")
+local vu9 = game:GetService("Workspace")
+local vu10 = v8.LocalPlayer
+task.spawn(function()
+    local v11 = loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Library/main/ui.lua"))():CreateWindow("The Dunes v1.0.1 | Connect Hub / ??? / ??? ms / ??? FPS")
+    local v12 = v11:NewTab("Logs")
+    local v13 = v11:NewTab("Main"):AddSection("Main")
+    local function vu25(p14, p15)
+        local v16, v17, v18 = ipairs(vu9.RoadPrefabs:GetChildren())
+        local v19 = nil
+        while true do
+            local v20
+            v18, v20 = v16(v17, v18)
+            if v18 == nil then
+                break
+            end
+            if v20:IsA("Model") and v20.Name == p14 then
+                local v21, v22, v23 = ipairs(v20:GetDescendants())
+                while true do
+                    local v24
+                    v23, v24 = v21(v22, v23)
+                    if v23 == nil then
+                        break
+                    end
+                    if v24:IsA("Part") then
+                        if v24.Name == p15 then
+                            v19 = v24
+                        end
+                    end
+                end
+            end
+        end
+        return v19
+    end
+    v13:AddToggle("Complete Sand Cruiser Quest", "???", false, function(pu26)
+        task.spawn(function()
+            Config.Sphynx = pu26
+            while Config.Sphynx do
+                if vu25("SphynxAttack", "Start") then
+                    if vu9.RoadPrefabs.SphynxAttack.CorruptedPharoah:FindFirstChild("EnterArea") then
+                        vu10.Character:PivotTo(vu9.RoadPrefabs.SphynxAttack.CorruptedPharoah:FindFirstChild("EnterArea"):GetPivot())
+                        task.wait(1)
+                        vu9.RoadPrefabs.SphynxAttack.CorruptedPharoah:FindFirstChild("EnterArea"):Destroy()
+                    end
+                elseif vu9.RoadPrefabs:FindFirstChild("Egyptian Run") then
+                    if vu9.RoadPrefabs["Egyptian Run"]:FindFirstChild("Sensor") then
+                        vu10.Character:PivotTo(vu9.RoadPrefabs["Egyptian Run"]:FindFirstChild("Sensor"):GetPivot())
+                        task.wait(1)
+                        vu9.RoadPrefabs["Egyptian Run"].Sensor:Destroy()
+                    else
+                        local v27, v28, v29 = ipairs(workspace.models.roads:GetChildren())
+                        while true do
+                            local v30
+                            v29, v30 = v27(v28, v29)
+                            if v29 == nil then
+                                break
+                            end
+                            vu10.Character:PivotTo(v30:GetPivot() * CFrame.new(0, 5, 0))
+                        end
+                    end
+                else
+                    local v31, v32, v33 = ipairs(workspace.models.roads:GetChildren())
+                    while true do
+                        local v34
+                        v33, v34 = v31(v32, v33)
+                        if v33 == nil then
+                            break
+                        end
+                        vu10.Character:PivotTo(v34:GetPivot() * CFrame.new(0, 5, 0))
+                    end
+                end
+                task.wait(1)
+            end
+        end)
+        task.spawn(function()
+            Config.Sphynx = pu26
+            while Config.Sphynx do
+                if vu25("SphynxAttack", "Start") and not vu9.RoadPrefabs.SphynxAttack.CorruptedPharoah:FindFirstChild("EnterArea") then
+                    if vu9.RoadPrefabs:FindFirstChild("SphynxAttack").CorruptedPharoah:FindFirstChild("Boss").Humanoid.Health ~= 0 then
+                        game.Players.LocalPlayer.Character:PivotTo(vu9.RoadPrefabs.SphynxAttack.CorruptedPharoah.SpawnMobs:GetPivot() + Vector3.new(0, 2.3, 0))
+                    else
+                        vu1:Notify({
+                            Title = "Done!",
+                            Description = "Sand Cruiser has been added to your garage"
+                        }, {
+                            OutlineColor = Color3.fromRGB(0, 0, 255),
+                            Time = 2,
+                            Type = "image"
+                        }, {
+                            Image = "http://www.roblox.com/asset/?id=17860774372",
+                            ImageColor = Color3.fromRGB(255, 255, 255)
+                        })
+                        task.wait(3)
+                    end
+                    local v35, v36, v37 = pairs(vu9.RoadPrefabs:GetDescendants())
+                    local v38 = {
+                        "Boss"
+                    }
+                    local v39 = {
+                        "Mutant",
+                        "ExplodingMutant",
+                        "DebrisThrowingMutant",
+                        "AcidSpitterMutant",
+                        "MummyMutant"
+                    }
+                    while true do
+                        local v40
+                        v37, v40 = v35(v36, v37)
+                        if v37 == nil then
+                            break
+                        end
+                        if table.find(v38, v40.Name) and v40:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                            game.ReplicatedStorage:WaitForChild("Network"):WaitForChild("GunFramework_RequestDamage"):FireServer(game.ReplicatedStorage.Assets.Weapons:FindFirstChild("Railgun"), v40)
+                        end
+                    end
+                    local v41 = vu9
+                    local v42, v43, v44 = pairs(v41:GetChildren())
+                    while true do
+                        local v45
+                        v44, v45 = v42(v43, v44)
+                        if v44 == nil then
+                            break
+                        end
+                        if table.find(v39, v45.Name) then
+                            game.ReplicatedStorage.teleport:FireServer(v45, Vector3.new(math.huge, - math.huge, math.huge))
+                        end
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+        local vu46 = game.Players.LocalPlayer.Character.Humanoid
+        vu46.MaxHealth = math.huge
+        vu46.Health = vu46.MaxHealth / math.huge
+        vu46.HealthChanged:connect(function()
+            if vu46.Health < 99 then
+                vu46.Health = vu46.MaxHealth
+            end
+        end)
+    end)
+    v13:AddButton("Delete Players Tool | so that the players don\'t interfere", "Delete Players Tool", function()
+        local v47 = Instance.new("Tool", vu10.Backpack)
+        v47.Name = "Delete Tool"
+        v47.RequiresHandle = false
+        v47.Activated:Connect(function()
+            if vu10:GetMouse().Target and vu10:GetMouse().Target:FindFirstAncestorOfClass("Model") then
+                game.ReplicatedStorage.teleport:FireServer(vu10:GetMouse().Target:FindFirstAncestorOfClass("Model"), Vector3.new(math.huge, math.huge, math.huge))
+            end
+        end)
+    end)
+    local v48 = v12:AddSection("           The Dunes Version Loaded In " .. string.format("%s seconds.", string.format("%.2f", tostring(tick() - vu7))))
+    pcall(function()
+    end)
+    v48:AddButton("Join https://discord.gg/trSwdwm6Hp for newest Updates", "https://discord.gg/trSwdwm6Hp", function()
+        if setclipboard then
+            setclipboard("https://discord.gg/trSwdwm6Hp")
+        end
+    end)
+    v48:AddButton("1.0.1 Version:", "???", function()
+    end)
+    v48:AddButton("Sand Cruiser: Auto Complete", "???", function()
+    end)
+    vu1:Notify({
+        Title = "Connect Hub",
+        Description = "Script Succesfully Loaded."
+    }, {
+        OutlineColor = Color3.fromRGB(0, 0, 255),
+        Time = 3,
+        Type = "image"
+    }, {
+        Image = "http://www.roblox.com/asset/?id=17860774372",
+        ImageColor = Color3.fromRGB(255, 255, 255)
+    })
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Rspy", true))()
+end)
+local function vu62(p49)
+    local v50, v51, v52 = ipairs(game:GetService("CoreGui"):GetChildren())
+    while true do
+        local v53
+        v52, v53 = v50(v51, v52)
+        if v52 == nil then
+            break
+        end
+        if v53.Name == "Fluxus" then
+            local v54, v55, v56 = ipairs(v53:GetDescendants())
+            while true do
+                local v57
+                v56, v57 = v54(v55, v56)
+                if v56 == nil then
+                    break
+                end
+                if v57:IsA("Frame") then
+                    local v58, v59, v60 = ipairs(v57:GetDescendants())
+                    while true do
+                        local v61
+                        v60, v61 = v58(v59, v60)
+                        if v60 == nil then
+                            break
+                        end
+                        if v61:IsA("TextLabel") and string.find(v61.Text, p49) then
+                            return v61
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
+local vu63 = game:GetService("RunService").RenderStepped
+task.spawn(function()
+    vu63:Connect(function()
+        local v64 = vu62("Connect Hub")
+        if v64 then
+            local v65 = vu9
+            v64.Text = string.format("The Dunes v1.0.1 | Connect Hub / %s / %i ms / %i FPS", DateTime.now():FormatLocalTime("LTS", "de-DE"), math.round(game.Players.LocalPlayer:GetNetworkPing() * 1000), tostring(v65:GetRealPhysicsFPS()))
+        end
+    end)
+end)

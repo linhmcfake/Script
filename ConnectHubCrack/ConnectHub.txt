@@ -1,0 +1,42 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local v1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+local v2 = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+if game.PlaceId ~= 16389398622 then
+    if game.PlaceId ~= 17527914941 then
+        if game.PlaceId ~= 16389395869 then
+            if game.PlaceId ~= 17584310335 then
+                if game.PlaceId ~= 100786491362796 then
+                    if game.PlaceId ~= 72639813364968 then
+                        if game.PlaceId ~= 98422814745197 then
+                            v1:Notify({
+                                Title = v2,
+                                Description = "This game impossible to support, join in \'a dusty trip\'."
+                            }, {
+                                OutlineColor = Color3.fromRGB(0, 0, 255),
+                                Time = 3,
+                                Type = "image"
+                            }, {
+                                Image = "http://www.roblox.com/asset/?id=17860774372",
+                                ImageColor = Color3.fromRGB(255, 255, 255)
+                            })
+                        else
+                            loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/TheHunt", true))()
+                        end
+                    else
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Gifting", true))()
+                    end
+                else
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/TheDunes", true))()
+                end
+            else
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Classic", true))()
+            end
+        else
+            loadstring(game:HttpGet("https://pastefy.app/KjkK9dk3/raw", true))()
+        end
+    else
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/ThePlains", true))()
+    end
+else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxqLgnd/Utilities/main/Desert", true))()
+end
