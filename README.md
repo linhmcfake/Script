@@ -9,3 +9,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/ref
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/MaxNo1.lua"))()
 ```
+# A DUSTY TRIP
+
+```
+loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/%5BOPEN%20SOURCE%5D%20ADustyTrip"))()
