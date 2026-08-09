@@ -7,7 +7,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/ref
 # BUILD AND BATTLE
 
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/MaxNo1.lua"))()
+
 ```
 # A DUSTY TRIP
 
