@@ -12,7 +12,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/ref
 # BUILD AND BATTLE
 
 ```lua
-
+sold
 ```
 # A DUSTY TRIP
 
