@@ -21,6 +21,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/ref
 ```
 
 # MORE FPS
-```
+```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/more-fps"))()
 ```
