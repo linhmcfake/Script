@@ -19,3 +19,8 @@ sold
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/%5BOPEN%20SOURCE%5D%20ADustyTrip"))()
 ```
+
+# MORE FPS
+```
+https://raw.githubusercontent.com/linhmcfake/Script/refs/heads/main/more-fps
+```
