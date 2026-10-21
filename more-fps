@@ -1,7 +1,15 @@
+if setfpscap then
+	setfpscap(999)
+elseif getgenv().setfpscap then
+	getgenv().setfpscap(999)
+else
+	warn("[FPS BOOSTER] setfpscap missing - uncapping requires FFlag DFIntTaskSchedulerTargetFps")
+end
+
 local Players = game:GetService("Players")
 local Lighting = game:GetService("Lighting")
 local Workspace = game:GetService("Workspace")
-local RunService = game:GetService("RunService")
+
 local LocalPlayer = Players.LocalPlayer
 local KILL_CLASSES = {
 	ParticleSystem = true,
@@ -11,73 +19,80 @@ local KILL_CLASSES = {
 	Smoke = true,
 	Fire = true,
 	Sparkles = true,
-	Fire = true,
 	ExplosionSound = true,
-	RocketPropulsionExplosionSound = true,
-	SpringSound = true,
-	Dust = true,
-}
-local POST_EFFECTS = {
-	BlurEffect = true,
-	BloomEffect = true,
-	ColorCorrectionEffect = true,
-	SunRaysEffect = true,
-	DepthOfFieldEffect = true,
-	ColorCorrectionEffect = true,
-	SunRaysEffect = true,
 }
 local function kill(obj)
 	if KILL_CLASSES[obj.ClassName] then
 		obj:Destroy()
-	elseif POST_EFFECTS[obj.ClassName] then
+	elseif obj:IsA("PostEffect") then
 		obj:Destroy()
 	end
 end
-local function sweep(startInstance)
-	for _, obj in ipairs(startInstance:GetDescendants()) do
+
+local function sweep(root)
+	for _, obj in ipairs(root:GetDescendants()) do
 		pcall(kill, obj)
 	end
 end
-local function watch(loadContainer)
-	loadContainer.DescendantAdded:Connect(function(obj)
-		task.defer(function()
-			pcall(kill, obj)
-		end)
+
+local function watch(root)
+	root.DescendantAdded:Connect(function(obj)
+		task.defer(pcall, kill, obj)
 	end)
 end
-local function flattenLighting()
-	Lighting.GlobalShadows = false
-	Lighting.FogEnd = 100000
-	Lighting.Brightness = 1
-	if Lighting:FindFirstChildOfClass("Atmosphere") then
-		Lighting:FindFirstChildOfClass("Atmosphere"):Destroy()
+Lighting.GlobalShadows = false
+Lighting.FogEnd = 9e9
+Lighting.FogStart = 9e9
+Lighting.ExposureCompensation = 0
+Lighting.Brightness = 1
+
+for _, child in ipairs(Lighting:GetChildren()) do
+	if child:IsA("Atmosphere") then
+		child:Destroy()
+	elseif child:IsA("Sky") then
+		child.StarCount = 0
+		child.SunAngularSize = 0
+		child.MoonAngularSize = 0
 	end
-	for _, terrain in ipairs(Workspace:GetDescendants()) do
-		if terrain:IsA("Terrain") then
-			terrain.WaterWaveSize = 0
-			terrain.WaterWaveSpeed = 0
-			terrain.WaterReflectance = 0
-			terrain.WaterTransparency = 0
-		end
+end
+
+pcall(function()
+	settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+end)
+
+pcall(function()
+	settings().RenderSettings.UseCinematicSimulatedLighting = false -- if on older client builds
+end)
+
+local function flattenTerrain()
+	local terrain = Workspace:FindFirstChildOfClass("Terrain")
+	if terrain then
+		terrain.WaterWaveSize = 0
+		terrain.WaterWaveSpeed = 0
+		terrain.WaterReflectance = 0
+		terrain.WaterTransparency = 0
+		terrain.Decoration = false -- kills grass + terrain decorations at the engine source
 	end
+end
+
+local function flattenMaterials()
 	for _, part in ipairs(Workspace:GetDescendants()) do
-		if part:IsA("BasePart") and part:IsA("Part") == false then
+		if part:IsA("BasePart") then
 			part.Material = Enum.Material.SmoothPlastic
-		elseif part:IsA("Part") then
-			part.Material = Enum.Material.SmoothPlastic
+		elseif part:IsA("ParticleEmitter") or part:IsA("Trail") or part:IsA("Beam") then
+			part:Destroy()
 		end
 	end
 end
-sweep(Workspace)
+
+flattenTerrain()
+flattenMaterials()
 sweep(Lighting)
-watch(Workspace)
+sweep(Workspace)
 watch(Lighting)
-watch(game)
-flattenLighting()
-if Player then
-	Player.CharacterAdded:Connect(function(char)
-		task.wait(0.5)
-		sweep(char)
-		sweep(Workspace)
-	end)
-end
+watch(Workspace)
+LocalPlayer.CharacterAdded:Connect(function(char)
+	task.wait(0.5)
+	sweep(char)
+	flattenTerrain()
+end)
