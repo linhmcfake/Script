@@ -1,3 +1,5 @@
+-- v3
+
 _G.Ignore        = _G.Ignore or {}
 _G.ConsoleLogs   = _G.ConsoleLogs or false
 
@@ -51,6 +53,7 @@ _G.Settings = _G.Settings or {
         LowQualityMeshParts = true,
         ClearNilInstances   = false,
         NoVFX               = true,
+        NoLoopSounds        = true,
     },
 }
 
@@ -72,18 +75,11 @@ local VFX_DISABLE    = {
     "BlurEffect", "ColorCorrectionEffect", "SunRaysEffect",
     "BloomEffect", "DepthOfFieldEffect",
 }
-
-local function isPlayerRelated(inst)
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player.Character and inst:IsDescendantOf(player.Character) then
-            return true
-        end
-        if inst:IsDescendantOf(player) then
-            return true
-        end
-    end
-    return false
-end
+local SOUND_EFFECTS  = {
+    "ReverbSoundEffect", "DistortionSoundEffect", "EchoSoundEffect",
+    "EqualizerSoundEffect", "FlangeSoundEffect", "PitchShiftSoundEffect",
+    "TremoloSoundEffect", "ChorusSoundEffect", "CompressorSoundEffect",
+}
 
 local function isIgnored(inst)
     if table.find(_G.Ignore, inst) then return true end
@@ -107,6 +103,23 @@ local function shouldProcess(inst)
         return false
     end
     return true
+end
+
+local function handleSound(inst)
+    if not inst:IsA("Sound") then return end
+    if not _G.Settings.Other.NoLoopSounds then return end
+    pcall(function()
+        if inst.Looped then
+            inst.Looped  = false
+            inst.Playing = false
+            inst:Stop()
+        end
+        for _, fx in ipairs(inst:GetChildren()) do
+            if table.find(SOUND_EFFECTS, fx.ClassName) then
+                fx:Destroy()
+            end
+        end
+    end)
 end
 
 local function nukeTextures(inst)
@@ -137,6 +150,8 @@ local function nukeVFX(inst)
             inst:Destroy()
         elseif table.find(VFX_DISABLE, inst.ClassName) then
             inst.Enabled = false
+        elseif table.find(SOUND_EFFECTS, inst.ClassName) then
+            inst:Destroy()
         elseif inst:IsA("PostEffect") then
             inst.Enabled = false
         end
@@ -148,6 +163,7 @@ local function processInstance(inst)
 
     nukeVFX(inst)
     nukeTextures(inst)
+    handleSound(inst)
 
     local cfg = _G.Settings
 
@@ -230,6 +246,10 @@ local function handleCharacterInst(inst)
             inst:Destroy()
         elseif table.find(VFX_DISABLE, inst.ClassName) then
             inst.Enabled = false
+        elseif table.find(SOUND_EFFECTS, inst.ClassName) then
+            inst:Destroy()
+        elseif inst:IsA("Sound") then
+            handleSound(inst)
         end
     end)
 end
@@ -278,6 +298,10 @@ local function handleNPCInst(inst)
             inst:Destroy()
         elseif table.find(VFX_DISABLE, inst.ClassName) then
             inst.Enabled = false
+        elseif table.find(SOUND_EFFECTS, inst.ClassName) then
+            inst:Destroy()
+        elseif inst:IsA("Sound") then
+            handleSound(inst)
         end
     end)
 end
